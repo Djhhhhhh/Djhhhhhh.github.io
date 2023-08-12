@@ -1,4 +1,4 @@
-import{d as n,e as t,u as i}from"./index-de489ddf.js";const e=`<h2>P9343 一曲新词酒一杯</h2>
+import{A as a,M as s,O as n,J as t,ak as c,aj as l,u as r}from"./index-7ebd08c1.js";import{c as _,d as u,a as d}from"./el-main-31da88a5.js";/* empty css               */const f=`<h2>P9343 一曲新词酒一杯</h2>
 <h3>[题目链接](<a href="https://www.luogu.com.cn/problem/P9343">P9343 一曲新词酒一杯 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h3>
 <h4>思路</h4>
 <p>​	题目共两种操作。第一种操作只能让特定的一杯贴上标签，第二种操作是选中的杯子以外的所有的杯子贴上标签。询问你至少在几次操作之后，所有的杯子至少被贴上了一张标签。</p>
@@ -67,4 +67,4 @@ int main() {
 }
 
 </code></pre>
-`,o=["innerHTML"],a={__name:"TiJie",setup(c){return(l,s)=>(n(),t("div",{innerHTML:i(e)},null,8,o))}};export{a as default};
+`;const m=["innerHTML"],w={__name:"TiJie",setup(p){return(h,g)=>{const i=u,e=d,o=_;return a(),s(o,null,{default:n(()=>[t(i,{width:"200px"},{default:n(()=>[c("Aside")]),_:1}),t(e,null,{default:n(()=>[l("div",{innerHTML:r(f),class:"a"},null,8,m)]),_:1})]),_:1})}}};export{w as default};

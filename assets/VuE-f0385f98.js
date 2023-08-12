@@ -1,4 +1,4 @@
-import{d as t,e as n,u as e}from"./index-de489ddf.js";const p=`<p>[Vue概念</p>
+import{A as s,M as a,O as t,J as n,ak as r,aj as h,u}from"./index-7ebd08c1.js";import{c,d as l,a as d}from"./el-main-31da88a5.js";/* empty css               */const g=`<h2>Vue概念</h2>
 <p>​		Vue是用于构建用户界面的渐进式框架。</p>
 <h4>构建用户界面</h4>
 <p>​	基于数据渲染出用户看到的页面。</p>
@@ -1203,4 +1203,4 @@ export const useAlertsStore = defineStore('alerts', {
 app.use(createPinia().use(persist))
 </code></pre>
 <p>​	3.store仓库中，persist：true开启</p>
-`,o=["innerHTML"],u={__name:"VuE",setup(s){return(a,r)=>(t(),n("div",{innerHTML:e(p)},null,8,o))}};export{u as default};
+`;const i=["innerHTML"],V={__name:"VuE",setup(m){return(v,x)=>{const e=l,p=d,o=c;return s(),a(o,null,{default:t(()=>[n(e,{width:"200px"},{default:t(()=>[r("Aside")]),_:1}),n(p,null,{default:t(()=>[h("div",{innerHTML:u(g),class:"a"},null,8,i)]),_:1})]),_:1})}}};export{V as default};
