@@ -1,0 +1,239 @@
+import{A as a,M as s,O as n,J as t,ak as d,aj as g,u as h}from"./index-bcb9ec1b.js";import{c as p,d as l,a as c}from"./el-main-cc56cba7.js";/* empty css               */const i=`<h1>Java</h1>
+<h2>Path环境变量</h2>
+<p>​	配置path环境变量可以快速打开软件。</p>
+<h4>理解</h4>
+<p>​	可以理解为是系统中的一个管家，帮我们记录了很多软件的完整路径。当我们要运行一个程序的时候，但是没有告诉她完整路径，他会在path中寻找指定路径，若存在则访问。</p>
+<h2>JavaSE</h2>
+<p>​	java语言的标准版，用于桌面应用开发，是其他两个版本的基础。</p>
+<h4>桌面应用</h4>
+<p>​	用户只要打开程序，程序的界面会让用户在最短时间找到他们需要的功能。</p>
+<h2>JavaEE</h2>
+<p>​	java语言的企业版，用于web方向的网站开发。</p>
+<h2>java跨平台性</h2>
+<p>​	java程序可以在任意操作系统上执行。</p>
+<h4>原理</h4>
+<p>​	该操作系统是否下载JVM虚拟机，如果下载了就能运行。</p>
+<p>​	JVM虚拟机本质上就是一个软件。</p>
+<p>​	JVM不允许跨平台。</p>
+<h2>注释</h2>
+<p>​	在程序指定位置加说明性信息。</p>
+<h4>语法</h4>
+<pre><code class="language-java">// 单行注释
+/* 多行注释 */
+/**  文档注释 */
+</code></pre>
+<h2>字面量</h2>
+<pre><code class="language-java">666//整数
+666.666//小数
+&quot;string_is_string&quot;//字符串
+'s','b'//字符
+true,false //布尔值
+null//空值
+</code></pre>
+<h2>变量</h2>
+<h4>定义</h4>
+<pre><code class="language-java">int a;
+double b;
+</code></pre>
+<h2>表示符</h2>
+<p>​	给类，方法，变量起的名字的符号。</p>
+<h4>命名规则</h4>
+<p>​	由数字，字母，下划线，美元符组成。</p>
+<p>​	不能以数字开头，不能是关键字。</p>
+<h4>命名规范</h4>
+<p>​	小驼峰（通常给变量）或者大驼峰（通常给类）命名法。</p>
+<h2>数据类型</h2>
+<h4>整数</h4>
+<p>​	byte short int long</p>
+<h4>浮点数</h4>
+<p>​	float double</p>
+<h4>字符</h4>
+<p>​	char</p>
+<h4>布尔</h4>
+<p>​	boolean</p>
+<h4>字符串</h4>
+<p>​	String</p>
+<h2>输出</h2>
+<h4>语法</h4>
+<pre><code class="language-java">System.out.println(num);
+</code></pre>
+<h2>键盘录入</h2>
+<h4>语法</h4>
+<pre><code class="language-java">import java.util.Scanner;  //导入录入包
+Scanner sc = new Scanner(System.in);  //常见一个用于录入的对象
+int num = sc.nextInt();  //录入并赋值保存
+System.out.println(num); //输出
+</code></pre>
+<h2>运算符</h2>
+<h4>算数运算符</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>+</strong></th>
+<th><strong>加</strong></th>
+<th><strong>=</strong></th>
+<th><strong>赋值</strong></th>
+<th><strong>&gt;</strong></th>
+<th><strong>大于</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>-</strong></td>
+<td><strong>减</strong></td>
+<td><strong>+=</strong></td>
+<td><strong>加等</strong></td>
+<td><strong>&lt;</strong></td>
+<td><strong>小于</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">*****</td>
+<td><strong>乘</strong></td>
+<td><strong>-=</strong></td>
+<td><strong>减等</strong></td>
+<td><strong>&gt;=</strong></td>
+<td><strong>大于等于</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>/</strong></td>
+<td><strong>除</strong></td>
+<td><strong>%=</strong></td>
+<td><strong>取余等</strong></td>
+<td><strong>&lt;=</strong></td>
+<td><strong>小于等于</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>%</strong></td>
+<td><strong>取余</strong></td>
+<td><strong>/=</strong></td>
+<td><strong>除等</strong></td>
+<td><strong>&amp;</strong></td>
+<td><strong>与</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>++</strong></td>
+<td><strong>自增</strong></td>
+<td><strong>==</strong></td>
+<td><strong>相等</strong></td>
+<td><strong>|</strong></td>
+<td><strong>或</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>--</strong></td>
+<td><strong>自减</strong></td>
+<td><strong>!=</strong></td>
+<td><strong>不等</strong></td>
+<td><strong>!</strong></td>
+<td><strong>非</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>^</strong></td>
+<td><strong>异或</strong></td>
+<td><strong>&amp;&amp;</strong></td>
+<td><strong>短路与</strong></td>
+<td><strong>||</strong></td>
+<td><strong>短路与</strong></td>
+</tr>
+</tbody>
+</table>
+<p>三目运算符：条件？值1：值2   条件为真执行值1，否则执行值2</p>
+<p>补充：当字符串与其他的数据进行相加操作时，+就变为字符串连接符，不是算术运算。</p>
+<h4>类型转化</h4>
+<h5>隐式转换</h5>
+<p>​		将取值范围小的值赋值给另一个取值范围大的变量。</p>
+<p>​		byte=&gt;short,char=&gt;int=&gt;long=&gt;float=&gt;double</p>
+<p>​		注意：byte,short,char这三种类型都会自动转化为int再计算。</p>
+<h5>强制类型转化</h5>
+<p>​		把一个取值范围大的数值或者变量，赋值给另一个取值范围小的变量。</p>
+<pre><code class="language-java">double a=1.2;
+int b=(int) a;
+System.out.println(a);    //该程序输出1
+</code></pre>
+<h4>常量优化机制</h4>
+<p>​	java存在常量优化机制，在编译的时候（javac）就会将进行代码中的运算，产生字节码文件：byte b = 7；</p>
+<h4>扩展赋值运算符</h4>
+<p>​	内部自带强转效果。</p>
+<h2>函数</h2>
+<p>​	一段具有独立功能的代码块，不调用就不执行。</p>
+<h4>语法</h4>
+<pre><code class="language-java">public static 数据类型 方法名(参数表){
+    //方法体
+    return 数据;
+}
+</code></pre>
+<h4>函数重载</h4>
+<p>​	相同方法名，但是参数表不同。</p>
+<p>​	数据会自动找到对应参数表的函数执行。</p>
+<h2>分支结构</h2>
+<h4>if语法</h4>
+<pre><code class="language-java">if(逻辑运算1){
+	//为逻辑运算1真执行
+}else if(逻辑运算2){
+	//为逻辑运算2真执行
+}else {
+	//以上两个均为假执行
+}
+</code></pre>
+<h4>switch语法</h4>
+<pre><code class="language-java">switch(参数){
+	case 值1:
+		//语句体
+		break;
+	case 值2:
+		//语句体
+		break;
+	default:
+		//语句体
+		break;
+}
+</code></pre>
+<h2>循环结构</h2>
+<h4>for语法</h4>
+<pre><code class="language-java">for(int i=1;i&lt;=n;i++){
+	System.out.println(&quot;我循环第&quot;+i+&quot;次&quot;);
+}
+</code></pre>
+<h4>while语句</h4>
+<pre><code class="language-java">while(逻辑运算){
+	//为真执行循环体
+}
+</code></pre>
+<h4>do-while语句</h4>
+<pre><code class="language-java">do{
+	//循环体
+}while(判断)；
+</code></pre>
+<h4>循环控制</h4>
+<pre><code class="language-java">break;
+continue;
+</code></pre>
+<h2>Random随机数</h2>
+<p>​	随机数函数。</p>
+<h4>语法</h4>
+<pre><code>import java.util.Random
+Random r = new Random();
+int num = r.nextInt(n); //产生0-n的随机数
+</code></pre>
+<h2>数组</h2>
+<h4>数组静态初始化</h4>
+<pre><code class="language-java">数据类型[] 数组名;  //java常用
+数据类型 数组名[];
+//完整格式:
+数据类型[] 数组名 = new 数据类型[]{元素1，元素2，元素3}
+//简化格式:
+数据类型[] 数组名 = {元素1，元素2，元素3}
+</code></pre>
+<h4>打印数组名</h4>
+<pre><code class="language-java">例:出现[I@776ec8df
+@:分隔符 [:当前空间是数组类型 I:数组所存储的数据类型  后面的是16进制地址
+</code></pre>
+<h4>数组访问</h4>
+<pre><code class="language-java">数组名[索引]
+</code></pre>
+<p>​	数组索引从0开始。</p>
+<h4>数组中可用的方法</h4>
+<pre><code>数组名.length //动态获取数组的长度
+</code></pre>
+<h4>数组动态初始化</h4>
+<p>​	在初始化的时候只指定数组长度，由系统为数组分配初始值。</p>
+`;const u=["innerHTML"],y={__name:"JavaStudy",setup(v){return(_,m)=>{const e=l,o=c,r=p;return a(),s(r,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[d("Aside")]),_:1}),t(o,null,{default:n(()=>[g("div",{innerHTML:h(i),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{y as default};
