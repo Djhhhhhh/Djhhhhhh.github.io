@@ -1,4 +1,4 @@
-import{A as a,M as s,O as n,J as t,ak as d,aj as g,u as h}from"./index-bcb9ec1b.js";import{c as p,d as l,a as c}from"./el-main-cc56cba7.js";/* empty css               */const i=`<h1>Java</h1>
+import{A as r,M as s,O as n,J as t,ak as d,aj as h,u as g}from"./index-fb36f9a9.js";import{c as p,d as l,a as c}from"./el-main-308cebb6.js";/* empty css               */const i=`<h1>Java</h1>
 <h2>Path环境变量</h2>
 <p>​	配置path环境变量可以快速打开软件。</p>
 <h4>理解</h4>
@@ -164,6 +164,9 @@ System.out.println(a);    //该程序输出1
 <h4>函数重载</h4>
 <p>​	相同方法名，但是参数表不同。</p>
 <p>​	数据会自动找到对应参数表的函数执行。</p>
+<h2>方法</h2>
+<h4>getMin(数组名)</h4>
+<p>​	获取数组最小值。</p>
 <h2>分支结构</h2>
 <h4>if语法</h4>
 <pre><code class="language-java">if(逻辑运算1){
@@ -236,4 +239,36 @@ int num = r.nextInt(n); //产生0-n的随机数
 </code></pre>
 <h4>数组动态初始化</h4>
 <p>​	在初始化的时候只指定数组长度，由系统为数组分配初始值。</p>
-`;const u=["innerHTML"],y={__name:"JavaStudy",setup(v){return(_,m)=>{const e=l,o=c,r=p;return a(),s(r,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[d("Aside")]),_:1}),t(o,null,{default:n(()=>[g("div",{innerHTML:h(i),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{y as default};
+<h5>默认值分类</h5>
+<p>​		整数：0   小数：0.0  布尔：false  字符：'\\u000'  字符串：null</p>
+<p>​		'u000'   ===&gt;  Unicode字符</p>
+<h4>数组静态初始化</h4>
+<p>​	手动指定数组元素默认值，让数组自动指定长度。</p>
+<h4>二维数组</h4>
+<pre><code class="language-java">//完整格式:
+数据类型[][] 数组名 = new 数据类型[][]{{元素1，元素2},{元素1，元素2}}
+//简化格式:
+数据类型[][] 数组名 = {{元素1，元素2},{元素1，元素2}}
+</code></pre>
+<h2>内存分配</h2>
+<p>​	字节码文件加载时会进入方法区。</p>
+<p>​	方法运行时进入栈。</p>
+<p>​	new出来的东西放在堆中。</p>
+<h2>类与对象</h2>
+<h4>类</h4>
+<p>​	一组相关属性和行为的集合。</p>
+<p>​	组成：属性，行为。</p>
+<h4>定义</h4>
+<pre><code class="language-java">public class 类名{
+	属性1;
+	属性2;
+	pubilc void study(){ //行为
+		//行为体
+	}
+}
+</code></pre>
+<h4>创建对象</h4>
+<p>​	使用类的时候，需要创建对象，然后通过主方法main调用。</p>
+<pre><code class="language-java">类名 对象名 = new 类名()
+</code></pre>
+`;const u=["innerHTML"],y={__name:"JavaStudy",setup(v){return(m,_)=>{const e=l,a=c,o=p;return r(),s(o,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[d("Aside")]),_:1}),t(a,null,{default:n(()=>[h("div",{innerHTML:g(i),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{y as default};

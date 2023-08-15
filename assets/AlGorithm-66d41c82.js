@@ -1,4 +1,4 @@
-import{A as r,M as a,O as n,J as t,ak as o,aj as p,u as c}from"./index-bcb9ec1b.js";import{c as s,d as u,a as d}from"./el-main-cc56cba7.js";/* empty css               */const g=`<h1>STL</h1>
+import{A as r,M as a,O as n,J as t,ak as o,aj as p,u as c}from"./index-fb36f9a9.js";import{c as s,d as u,a as d}from"./el-main-308cebb6.js";/* empty css               */const g=`<h1>STL</h1>
 <h2>vector</h2>
 <p>​	vector容器的功能和数组非常相似，使用时可以把它看成一个数组。</p>
 <h4>与普通数组的区别</h4>
@@ -1885,7 +1885,7 @@ int find(int id, int l, int r, int x, int y) {
     ll r;   //当前节点右边界
     ll val;  //当前节点的值
     ll lazy;  //当前节点lazy标记
-}tr[N*4];   //大小
+}tr[N&lt;&lt;2];   //大小  线段树如果没有特别处理叶子节点的话，要开 8倍
 ll a[Nn];  //原数组
 </code></pre>
 <h4>父节点更新</h4>
@@ -1934,7 +1934,7 @@ ll a[Nn];  //原数组
 }
 </code></pre>
 <h4>查询函数</h4>
-<pre><code class="language-c++">ll find(ll id, ll l, ll r) {
+<pre><code class="language-c++">ll query(ll id, ll l, ll r) {
     ll ans = 0;
     if (tr[id].l &gt;= l &amp;&amp; tr[id].r &lt;= r) {
         return tr[id].val;
