@@ -1,4 +1,4 @@
-import{A as r,M as s,O as n,J as t,ak as d,aj as h,u as g}from"./index-fb36f9a9.js";import{c as p,d as l,a as c}from"./el-main-308cebb6.js";/* empty css               */const i=`<h1>Java</h1>
+import{A as p,M as o,O as n,J as t,ak as d,aj as s,u as h}from"./index-7dbeedf6.js";import{c as g,d as l,a as c}from"./el-main-7de23456.js";/* empty css               */const i=`<h1>Java</h1>
 <h2>Path环境变量</h2>
 <p>​	配置path环境变量可以快速打开软件。</p>
 <h4>理解</h4>
@@ -252,7 +252,7 @@ int num = r.nextInt(n); //产生0-n的随机数
 </code></pre>
 <h2>内存分配</h2>
 <p>​	字节码文件加载时会进入方法区。</p>
-<p>​	方法运行时进入栈。</p>
+<p>​	方法运行时进入栈。方法结束出栈。</p>
 <p>​	new出来的东西放在堆中。</p>
 <h2>类与对象</h2>
 <h4>类</h4>
@@ -271,4 +271,81 @@ int num = r.nextInt(n); //产生0-n的随机数
 <p>​	使用类的时候，需要创建对象，然后通过主方法main调用。</p>
 <pre><code class="language-java">类名 对象名 = new 类名()
 </code></pre>
-`;const u=["innerHTML"],y={__name:"JavaStudy",setup(v){return(m,_)=>{const e=l,a=c,o=p;return r(),s(o,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[d("Aside")]),_:1}),t(a,null,{default:n(()=>[h("div",{innerHTML:g(i),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{y as default};
+<h2>对象内存图</h2>
+<h4>内存图</h4>
+<p>​	先对main函数所在的对象所创建的字节码文件放在方法区中。然后入栈。再main函数new对象时，对象的字节码文件才进入方法区。创建对象的时候在堆中申请一块地址，然后将地址返回。</p>
+<p>​	方法运行的时候会入栈，然后方法结束时候弹出。</p>
+<h2>成员变量和局部变量</h2>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>成员变量</th>
+<th>局部变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>位置</td>
+<td>方法外</td>
+<td>方法中</td>
+</tr>
+<tr>
+<td>初始化值</td>
+<td>有默认</td>
+<td>没有</td>
+</tr>
+<tr>
+<td>内存位置</td>
+<td>堆</td>
+<td>栈</td>
+</tr>
+<tr>
+<td>生存周期</td>
+<td>随着对象存在</td>
+<td>随着方法的调用存在</td>
+</tr>
+<tr>
+<td>作用域</td>
+<td>自己所属的大括号</td>
+<td>自己所属的大括号中</td>
+</tr>
+</tbody>
+</table>
+<h2>this关键字</h2>
+<p>​	用于访问对象中的成员或者函数。</p>
+<h2>构造方法</h2>
+<p>​	初始化一个新建的对象。</p>
+<p>​	构建，创造对象的时候，所调用的方法。</p>
+<h4>格式</h4>
+<p>​	1.方法名与类名相同，大小写也要一致。</p>
+<p>​	2.没有返回值类型，连void也没有。</p>
+<p>​	3.没有具体的返回值（不能由return带回结果数据）</p>
+<p>​	4.允许重载。</p>
+<h2>封装</h2>
+<p>​	使用类设计对象时，将需要处理的数据，以及处理这些数据的方法，设计到对象中。</p>
+<h4>权限修饰符</h4>
+<p>​	可以修饰成员，成员方法。</p>
+<p>​	private：私有权限 只有同一个类中才能访问。</p>
+<p>​	(default)：默认权限 同一个类同一个包中</p>
+<p>​	protected：保护权限 同一个类 同一个包 不同包的子类中</p>
+<p>​	public：公共权限 任意位置可以访问</p>
+<h2>标准JavaBean</h2>
+<p>​	JavaBean：实体类：封装数据的类</p>
+<p>​	可以使用快捷键直接生成。在IDEA中右键。</p>
+<h4>标准</h4>
+<p>​	1.这个类中的成员变量都要私有化，并且要对外提供响应的get，set方法。</p>
+<p>​	2.类中提供无参，带参构造方法。</p>
+<h4>应用场景</h4>
+<p>​	实体类只负责数据存取，而对数据的处理交给其他类来完成，以实现数据和数据业务处理相分离。</p>
+<h2>常用API</h2>
+<p>​	应用程序变成接口。（查文档）</p>
+<h4>使用流程</h4>
+<p>​	1.在索引位置搜索自己要查找的类</p>
+<p>​	2.看包</p>
+<p>​	3.看类的介绍</p>
+<p>​	4.看这个类的构造方法</p>
+<p>​	5.看这个类的成员方法</p>
+<h2>String类</h2>
+<p>​	 在java中，所有带有双引号的序列，都为string类。</p>
+`;const u=["innerHTML"],y={__name:"JavaStudy",setup(v){return(m,_)=>{const e=l,a=c,r=g;return p(),o(r,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[d("Aside")]),_:1}),t(a,null,{default:n(()=>[s("div",{innerHTML:h(i),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{y as default};
