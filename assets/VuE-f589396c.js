@@ -1,4 +1,4 @@
-import{A as s,M as a,O as t,J as n,ak as r,aj as h,u}from"./index-7dbeedf6.js";import{c,d as l,a as d}from"./el-main-7de23456.js";/* empty css               */const g=`<h2>Vue概念</h2>
+import{A as a,M as r,O as t,J as e,aj as n,u as h}from"./index-f7076314.js";import{c as u,d as c,a as l}from"./el-main-a5e3958b.js";/* empty css               */const d=`<h2>Vue概念</h2>
 <p>​		Vue是用于构建用户界面的渐进式框架。</p>
 <h4>构建用户界面</h4>
 <p>​	基于数据渲染出用户看到的页面。</p>
@@ -124,7 +124,7 @@ v-on:事件名=&quot;methods中的函数名&quot;
 <p>​		1.数据变化=&gt;视图自动更新。</p>
 <p>​		2.视图变化=&gt;数据自动更新。</p>
 <p>​	语法：</p>
-<pre><code class="language-js">v-model=&quot;变量&quot;
+<pre><code class="language-js">Fv-model=&quot;变量&quot;
 </code></pre>
 <h2>指令的修饰符</h2>
 <p>​	通过'.'指明一些指令后缀，不同后缀封装了不同的处理操作=&gt;简化代码</p>
@@ -1203,4 +1203,4 @@ export const useAlertsStore = defineStore('alerts', {
 app.use(createPinia().use(persist))
 </code></pre>
 <p>​	3.store仓库中，persist：true开启</p>
-`;const i=["innerHTML"],V={__name:"VuE",setup(m){return(v,x)=>{const e=l,p=d,o=c;return s(),a(o,null,{default:t(()=>[n(e,{width:"200px"},{default:t(()=>[r("Aside")]),_:1}),n(p,null,{default:t(()=>[h("div",{innerHTML:u(g),class:"a"},null,8,i)]),_:1})]),_:1})}}};export{V as default};
+`;const g=n("div",{class:"glass"},[n("h2",null,"作者碎碎念")],-1),i=["innerHTML"],V={__name:"VuE",setup(m){return(v,f)=>{const p=c,o=l,s=u;return a(),r(s,null,{default:t(()=>[e(p,{width:"200px"},{default:t(()=>[g]),_:1}),e(o,null,{default:t(()=>[n("div",{innerHTML:h(d),class:"a"},null,8,i)]),_:1})]),_:1})}}};export{V as default};
