@@ -1,4 +1,4 @@
-import{A as l,M as a,O as n,J as i,aj as t,u as c}from"./index-f7076314.js";import{c as _,d as r,a as u}from"./el-main-a5e3958b.js";/* empty css               */const d=`<h2>P9343 一曲新词酒一杯</h2>
+import{A as l,M as a,O as n,J as i,aj as t,u as c}from"./index-5c1e6b13.js";import{c as _,d as r,a as u}from"./el-main-cc8a4ce4.js";/* empty css               */const d=`<h2>P9343 一曲新词酒一杯</h2>
 <h3>[题目链接](<a href="https://www.luogu.com.cn/problem/P9343">P9343 一曲新词酒一杯 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h3>
 <h4>思路</h4>
 <p>​	题目共两种操作。第一种操作只能让特定的一杯贴上标签，第二种操作是选中的杯子以外的所有的杯子贴上标签。询问你至少在几次操作之后，所有的杯子至少被贴上了一张标签。</p>
@@ -67,4 +67,4 @@ int main() {
 }
 
 </code></pre>
-`;const f=t("div",{class:"glass"},[t("h2",null,"作者碎碎念")],-1),m=["innerHTML"],w={__name:"TiJie",setup(p){return(h,g)=>{const e=r,o=u,s=_;return l(),a(s,null,{default:n(()=>[i(e,{width:"200px"},{default:n(()=>[f]),_:1}),i(o,null,{default:n(()=>[t("div",{innerHTML:c(d),class:"a"},null,8,m)]),_:1})]),_:1})}}};export{w as default};
+`;const f=t("div",{class:"glass"},[t("h2",null,"作者碎碎念")],-1),m=["innerHTML"],w={__name:"LuoP9343",setup(p){return(h,g)=>{const e=r,o=u,s=_;return l(),a(s,null,{default:n(()=>[i(e,{width:"200px"},{default:n(()=>[f]),_:1}),i(o,null,{default:n(()=>[t("div",{innerHTML:c(d),class:"a"},null,8,m)]),_:1})]),_:1})}}};export{w as default};
