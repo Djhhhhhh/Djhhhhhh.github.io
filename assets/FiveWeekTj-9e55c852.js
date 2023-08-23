@@ -1,4 +1,25 @@
-import{A as a,M as r,O as t,J as e,aj as n,u as s}from"./index-5c1e6b13.js";import{c,d as p,a as h}from"./el-main-cc8a4ce4.js";/* empty css               */const u=`<h2><a href="https://vjudge.net/problem/CodeForces-1794C">A - Scoring Subsequences</a></h2>
+import{A as a,M as r,O as t,J as l,aj as n,u as c}from"./index-01ac619c.js";import{c as s,d as p,a as h}from"./el-main-e5829f25.js";/* empty css               */const u=`<h2><a href="https://vjudge.net/problem/CodeForces-1794C">A - Scoring Subsequences</a></h2>
+<h4>思路</h4>
+<p>​		题目中给出的序列为非递增序列，我们应该在1-n组每一组中，从每一组的最后一个数往前选，若该元素o[l]&lt;i-l+1则该元素选不上，将l右移，统计每组答案的时候输出i-l+1即可。</p>
+<h4>代码实现</h4>
+<pre><code class="language-c++">int o[Nn];
+int main() {
+    fastread();
+    int t;
+    cin &gt;&gt; t;
+    while (t--) {
+        cin &gt;&gt; n;
+        for (int i = 1; i &lt;= n; i++)cin &gt;&gt; o[i];
+        int l = 1;
+        for (int i = 1; i &lt;= n; i++) {
+            while (l &lt; i &amp;&amp; o[l] &lt; i - l + 1)l++;
+            cout &lt;&lt; i - l + 1 &lt;&lt; &quot; &quot;;
+        }
+        cout &lt;&lt; &quot;\\n&quot;;
+    }
+    return 0;
+}
+</code></pre>
 <h2><a href="https://vjudge.net/problem/CodeForces-716B">B - Complete the Word</a></h2>
 <h4>思路</h4>
 <p>​	题目让你在给定的字符串中，寻找一个包含'A'-'Z'的子串，字符串中的'?'可以任意更改为任意字母。</p>
@@ -63,13 +84,40 @@ int main() {
 }
 </code></pre>
 <h2><a href="https://vjudge.net/problem/CodeForces-1007A">C - Reorder the Array</a></h2>
+<h4>思路</h4>
+<p>​	给你一个数列，让你构建出一个数列，数列的元素来自原数列，让构建的数列每个位置上的数比原位置上的数大的数量最大化。我们很容易想到，每个位置的数字要比之前的数字大，则让最大的数每次都替代比他小一点的数的位置就OK。裸的双指针题目，相较于其他题简单很多。</p>
+<h4>代码实现</h4>
+<pre><code class="language-c++">int o[Nn];
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; o[i];
+    }
+    ll r = n;
+    ll l = n - 1;
+    ll ans = 0;
+    sort(o + 1, o + 1 + n);
+    while (l &gt;= 1) {
+        if (o[r] &gt; o[l]) {
+            ans++;
+            r--;
+            l--;
+        }
+        else {
+            l--;
+        }
+    }
+    cout &lt;&lt; ans;
+    return 0;
+}
+</code></pre>
 <h2><a href="https://vjudge.net/problem/CodeForces-1265B">D - Beautiful Numbers</a></h2>
 <h2><a href="https://vjudge.net/problem/CodeForces-1237B">E - Balanced Tunnel</a></h2>
 <h4>思路</h4>
 <p>​	该题目要求求出被罚款的车的数量，我们通过题意可知，每辆车能超车的数量是不定的，但是每个车只会罚一次，所以我们只需判定，在给定的两个序列里，如何通过最小次数的更改单个位置的序列位置来更改第一个序列，才能与第二个序列相同。对此，我们将题目中的反过来，反正就是两个序列，我们将第一个序列先输入，设定一个指针，指向第一个序列的头部，然后在输入第二个序列的每个数的时候，如果这个数字与我指针所指的数相同，然后让指针下移。如果不等，那么该位置的数必是超车过来的，所以让答案加一，然后指针位置不变就，通过map记录访问过该数字。map的作用是在每次输入时，是让指针不会指向指过的数字。</p>
 <h4>代码实现</h4>
-<pre><code class="language-c++">
-ll o[100001];
+<pre><code class="language-c++">ll o[100001];
 map&lt;int,int&gt;p;
 int n;
 int main() {
@@ -117,4 +165,4 @@ int main() {
     return 0;
 }
 </code></pre>
-`;const d=n("div",{class:"glass"},[n("h2",null,"作者碎碎念"),n("h4",null,"这周题有点难度。")],-1),f=["innerHTML"],C={__name:"FiveWeekTj",setup(g){return(m,_)=>{const l=p,i=h,o=c;return a(),r(o,null,{default:t(()=>[e(l,{width:"200px"},{default:t(()=>[d]),_:1}),e(i,null,{default:t(()=>[n("div",{innerHTML:s(u),class:"a"},null,8,f)]),_:1})]),_:1})}}};export{C as default};
+`;const g=n("div",{class:"glass"},[n("h2",null,"作者碎碎念"),n("h4",null,"这周题有点难度。")],-1),d=["innerHTML"],C={__name:"FiveWeekTj",setup(f){return(m,_)=>{const e=p,i=h,o=s;return a(),r(o,null,{default:t(()=>[l(e,{width:"200px"},{default:t(()=>[g]),_:1}),l(i,null,{default:t(()=>[n("div",{innerHTML:c(u),class:"a"},null,8,d)]),_:1})]),_:1})}}};export{C as default};
