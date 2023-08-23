@@ -1,4 +1,4 @@
-import{A as o,M as s,O as n,J as e,aj as t,u as d}from"./index-01ac619c.js";import{c as h,d as g,a as l}from"./el-main-e5829f25.js";/* empty css               */const c=`<h1>Java</h1>
+import{A as o,M as s,O as n,J as e,aj as t,u as d}from"./index-45f9fc9d.js";import{c as g,d as h,a as l}from"./el-main-fb1f30cb.js";/* empty css               */const c=`<h1>Java</h1>
 <h2>Path环境变量</h2>
 <p>​	配置path环境变量可以快速打开软件。</p>
 <h4>理解</h4>
@@ -347,5 +347,96 @@ int num = r.nextInt(n); //产生0-n的随机数
 <p>​	4.看这个类的构造方法</p>
 <p>​	5.看这个类的成员方法</p>
 <h2>String类</h2>
-<p>​	 在java中，所有带有双引号的序列，都为string类。</p>
-`;const i=t("div",{class:"glass"},[t("h2",null,"作者碎碎念")],-1),u=["innerHTML"],y={__name:"JavaStudy",setup(v){return(m,_)=>{const a=g,r=l,p=h;return o(),s(p,null,{default:n(()=>[e(a,{width:"200px"},{default:n(()=>[i]),_:1}),e(r,null,{default:n(()=>[t("div",{innerHTML:d(c),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{y as default};
+<p>​	 在java中，所有带有双引号的序列，都为string类。 是不可变的字符序列。</p>
+<h4>字符串构造</h4>
+<pre><code class="language-java">string s1=&quot;abc&quot;;
+string s2=&quot;ab&quot;;
+string s3=s2+&quot;c&quot;;
+string s4=&quot;a&quot;+&quot;b&quot;+&quot;c&quot;;
+/*前三个构造出来的字符串 储存在堆内存中的地址均不同 
+*string s3在构造的时候会自动调用一个StringBuilder的方法函数 然后通过内部的toString方法赋予新
+*字符串地址
+*第四个字符串与第一个字符串地址相同 原因是java的常量优化机制
+**/
+</code></pre>
+<h4>字符串方法</h4>
+<pre><code class="language-java">public boolean equals(Object anObject)
+</code></pre>
+<p>​	将此字符串与指定对象比较。</p>
+<pre><code class="language-java">public boolean equalsIgnoreCase(string anotherString)
+</code></pre>
+<p>​	将此字符串与另一个字符串比较，不考虑大小写。</p>
+<pre><code class="language-java">public char[] toCharArray()
+</code></pre>
+<p>​	将此字符串转化为字符数组。</p>
+<pre><code class="language-java">public char charAt(int index)
+</code></pre>
+<p>​	返回指定索引的char值。</p>
+<pre><code class="language-java">public string substring(int beginIndex)
+public string substring(int beginIndex,int endIndex)
+</code></pre>
+<p>​	从beginIndex位置一直截取到endIndex，若省略endIndex则截取到最后。返回一个字符串。</p>
+<h2>StringBuiler类</h2>
+<p>​	提高字符串操作效率，是可变的字符序列。</p>
+<p>​	StingBuiler是字符串缓冲区，将其理解是容器，这个容器可以存储任意数据类型，但是只要进入到这个容器中，全部变成字符串。</p>
+<h4>构造方法</h4>
+<pre><code class="language-java">StringBuilder()
+</code></pre>
+<p>​	构造一个不带任何字符的字符串生成器，初始容量为16个字符，超过会自动扩容。</p>
+<h4>常用方法</h4>
+<pre><code>public StringBuilder append(任意类型)
+</code></pre>
+<p>​	添加数据，并返回对象本身。</p>
+<pre><code class="language-java">public StringBuilder reverse()
+</code></pre>
+<p>​	反转容器中的内容。</p>
+<pre><code class="language-java">public int length()
+</code></pre>
+<p>​	返回长度。</p>
+<pre><code class="language-java">public String toString()
+</code></pre>
+<p>​	将StringBuiler转为String。</p>
+<h2>ArrayList集合</h2>
+<p>​	集合与数组类似，也是一种容器，用来装数据，集合的大小可变，开发中使用较多。</p>
+<p>​	如果存储的数据个数固定不变，用数组存取，否则用集合存取。</p>
+<h4>长度可变原理</h4>
+<p>​	1.当创建ArrayList集合容器的时候，底层会存在一个长度为10个大小的空数组。</p>
+<p>​	2.扩容原数组1.5倍大小的新数组。</p>
+<p>​	3.将原数组数据，拷贝到新数组中。</p>
+<p>​	4.将新元素添加到新数组中。</p>
+<p>该类并不在主类中，使用ArrayList需要引包。</p>
+<pre><code class="language-java">import java.util.ArrayList
+</code></pre>
+<h4>构造方法</h4>
+<pre><code class="language-java">public ArrayList&lt;数据类型&gt;()
+</code></pre>
+<p>​	创建一个空的集合容器。</p>
+<h4>常用方法</h4>
+<pre><code class="language-java">public boolean add(E e)
+</code></pre>
+<p>​	将指定的元素调价到此集合的末尾。</p>
+<pre><code class="language-java">public void add(int index,E element)
+</code></pre>
+<p>​	在此集合中的指定位置插入指定的元素。</p>
+<pre><code class="language-java">public E get(int index)
+</code></pre>
+<p>​	返回指定索引处的元素。</p>
+<pre><code class="language-java">public int size()
+</code></pre>
+<p>​	返回集合中的元素的个数。</p>
+<pre><code class="language-java">public E remove(int index)
+</code></pre>
+<p>​	删除指定索引处的元素，返回被删除的元素。</p>
+<pre><code class="language-java">public boolean remove(Object o)
+</code></pre>
+<p>​	删除指定的元素，返回删除是否成功。</p>
+<pre><code class="language-java">public E set(int index,E element)
+</code></pre>
+<p>​	修改指定索引处的元素，返回被修改的元素。</p>
+<h2>static</h2>
+<p>​	static是静态的意思，可以修饰成员变量或者修饰成员方法。</p>
+<h4>特点</h4>
+<p>​	1.被类的所有对象共享。</p>
+<p>​	2.多了一种调用方式，可以通过类名进行调用。</p>
+<p>​	3.随着类的加载而加载，优先于对象存在。</p>
+`;const i=t("div",{class:"glass"},[t("h2",null,"作者碎碎念")],-1),u=["innerHTML"],f={__name:"JavaStudy",setup(v){return(b,j)=>{const a=h,p=l,r=g;return o(),s(r,null,{default:n(()=>[e(a,{width:"200px"},{default:n(()=>[i]),_:1}),e(p,null,{default:n(()=>[t("div",{innerHTML:d(c),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{f as default};

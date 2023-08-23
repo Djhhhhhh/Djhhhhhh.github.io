@@ -1,4 +1,4 @@
-import{A as a,M as r,O as t,J as l,aj as n,u as c}from"./index-01ac619c.js";import{c as s,d as p,a as h}from"./el-main-e5829f25.js";/* empty css               */const u=`<h2><a href="https://vjudge.net/problem/CodeForces-1794C">A - Scoring Subsequences</a></h2>
+import{A as a,M as r,O as t,J as l,aj as n,u as c}from"./index-45f9fc9d.js";import{c as s,d as p,a as h}from"./el-main-fb1f30cb.js";/* empty css               */const u=`<h2><a href="https://vjudge.net/problem/CodeForces-1794C">A - Scoring Subsequences</a></h2>
 <h4>思路</h4>
 <p>​		题目中给出的序列为非递增序列，我们应该在1-n组每一组中，从每一组的最后一个数往前选，若该元素o[l]&lt;i-l+1则该元素选不上，将l右移，统计每组答案的时候输出i-l+1即可。</p>
 <h4>代码实现</h4>
