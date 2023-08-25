@@ -1,4 +1,4 @@
-import{A as a,M as r,O as t,J as e,ai as n,u as h}from"./index-5b383733.js";import{c as u,d as c,a as l}from"./el-main-02f5b5e1.js";/* empty css               */const d=`<h2>Vue概念</h2>
+import{A as a,M as r,O as t,J as e,ai as n,u as h}from"./index-c578233e.js";import{c as u,d as c,a as l}from"./el-main-306fb644.js";/* empty css               */const d=`<h2>Vue概念</h2>
 <p>​		Vue是用于构建用户界面的渐进式框架。</p>
 <h4>构建用户界面</h4>
 <p>​	基于数据渲染出用户看到的页面。</p>
