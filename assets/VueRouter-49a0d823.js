@@ -1,4 +1,4 @@
-import{A as r,M as s,O as t,J as e,ai as n,u as p}from"./index-4ed20e76.js";import{c as u,d as l,a as c}from"./el-main-e234559c.js";/* empty css               */const h=`<h2>文章介绍</h2>
+import{A as r,M as s,O as t,J as e,ai as n,u as p}from"./index-1eca5c10.js";import{c as u,d as l,a as c}from"./el-main-7849f476.js";/* empty css               */const h=`<h2>文章介绍</h2>
 <p>​	在vue学习过程中，对于路由的种种细节并没有深入学习，故写此篇文章用于深入VueRouter路由知识。</p>
 <h2>VueRouter</h2>
 <p>​	Vue Router 是 Vue.js 的官方路由。它与 Vue.js 核心深度集成，让用 Vue.js 构建单页应用变得轻而易举。</p>
