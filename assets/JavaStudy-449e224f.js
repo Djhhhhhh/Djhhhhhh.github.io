@@ -1,4 +1,4 @@
-import{A as o,M as s,O as n,J as e,ai as t,u as d}from"./index-0529233d.js";import{c as g,d as h,a as l}from"./el-main-3a4f9b95.js";/* empty css               */const c=`<h1>Java</h1>
+import{A as o,M as s,O as n,J as e,ai as t,u as d}from"./index-ea24d3a4.js";import{c as g,d as h,a as l}from"./el-main-a6e86d0a.js";/* empty css               */const c=`<h1>Java</h1>
 <h2>Path环境变量</h2>
 <p>​	配置path环境变量可以快速打开软件。</p>
 <h4>理解</h4>

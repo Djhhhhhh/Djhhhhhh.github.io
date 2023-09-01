@@ -1,4 +1,4 @@
-import{A as o,M as s,O as n,J as t,ai as p,u as _}from"./index-0529233d.js";import{c as l,d as c,a as i}from"./el-main-3a4f9b95.js";/* empty css               */const r=`<h2>文档说明</h2>
+import{A as e,M as h,O as n,J as p,ai as t,u as l}from"./index-ea24d3a4.js";import{c,d as s,a as r}from"./el-main-a6e86d0a.js";/* empty css               */const d=`<h2>文档说明</h2>
 <p>​	本文档用于记录DP学习和准备选修上课讲授。</p>
 <h2>动态规划引入</h2>
 <p>​	动态规划(Dynamic programming，简称DP)。他是一种将复杂问题转化很多子问题，并将子问题进行求解，并将子问题的答案存储起来，避免重复计算相同子问题的一种算法。</p>
@@ -45,5 +45,65 @@ import{A as o,M as s,O as n,J as t,ai as p,u as _}from"./index-0529233d.js";impo
 <p>​	什么是01背包问题呢？</p>
 <p>​	01背包问题指的是那种，给你一定量的不同物品，每个物品只有一件，你有一个确定容量的背包，根据你的选择你可以选择是否装。</p>
 <p>​	举个例子，你要去水果摊拿水果，每种水果都有两个属性，一个是水果的价值，一个是水果的大小。老板跟你说每种说过你最多只能拿一个。因此我们会想如何拿水果，不超过背包的容量，而且水果的价值最大。</p>
-<p>​</p>
-`;const d=p("div",{class:"glass"},[p("h2",null,"作者碎碎念")],-1),u=["innerHTML"],M={__name:"DP",setup(m){return(f,x)=>{const e=c,h=i,a=l;return o(),s(a,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[d]),_:1}),t(h,null,{default:n(()=>[p("div",{innerHTML:_(r),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{M as default};
+<p>​	如果我们不能非常简单的判断出怎么拿的话，这时候我们就会一次一次试，当拿不同组合的水果时，每次都记录价值，最后处理完所有，我们使用价值最大的那组水果就可以了。</p>
+<p>​	但是这种每种排列都进行尝试的方式会浪费我们大量的宝贵时间，因此，我们可以使用动态规划的思想。该问题是一个典型的01背包问题。</p>
+<p>​	首先，对于01背包问题，每种水果只有一个，我们对于每种水果的选择只有买与不买两种，最优的选择肯定在不同的选择之中。</p>
+<p>​	我们要是想要知道第n中水果买与不买，这个决定取决于第n-1种水果买或者不买哪种更合适。我们想要的是答案的最优解，那么我们取到n-1的便是最优解了，那么我们在取n的最优解的时候，一定是要比n-1不是最优解的时候得到的结果要更好。所以取最优解这个过程相当于从小数据一直向后推，直到推到目标数据，得出答案。这体现了动态规划的三大要素。</p>
+<p>​	所以根据我们得出的结论，我们可以总结出，当我们决定买第i种水果的时候，只需要判断出背包在之前所有状态中的最大价值，与现在的价值相比，取最大值得出现在的值。我们可以总结出该问题的状态转移方程。
+$$
+dp[j] = max(dp[j], dp[j - o[i].w] + o[i].val)
+$$
+​	给出的是用滚动数组优化后的方程，个人感觉比二维数组还好理解。</p>
+<h6>核心代码</h6>
+<pre><code class="language-c++">struct shuiguo {
+    int val;//价值
+    int w;//重量
+}o[Nn];
+int dp[Nn];
+int main() {
+    fastread();
+    int v;//背包容量
+    int n; //水果种类
+    cin &gt;&gt; v &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; o[i].w &gt;&gt; o[i].val;
+    }
+    for (int i = 1; i &lt;= n; i++) { //表示的选择的第几个水果
+        for (int j = v; j &gt;= o[i].w; j--) {  //表示背包的容量
+            dp[j] = max(dp[j], dp[j - o[i].w] + o[i].val);
+        }
+    }
+    cout &lt;&lt; dp[v];
+    return 0;
+}
+</code></pre>
+<p>​	我们已经学习完了01背包的思想和对应的动态回归方程，让我们做几道题感受一下。</p>
+<h4>[P1048 [NOIP2005 普及组] 采药]([P1048 <a href="https://www.luogu.com.cn/problem/P1048">NOIP2005 普及组] 采药 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h4>
+<h6>思路</h6>
+<p>​	我们首先来分析一下题目的意思，师傅让你去一个山洞探险，山洞里面的药草每一株有他自己的价值，并且每踩一株需要一段时间，山洞里面所有药草都只有一种，要求我们输出在给定时间内可以取到的药草的最大价值。</p>
+<p>​	好了，题目的重点我们已经提取完毕，思维比较好的同学可能现在就已经看出来了，这不就是刚才买水果的问题吗？不要怀疑自己，这个问题就是01背包问题。</p>
+<p>​	我们给没有想明白的同学讲解一下这个思路。我们可以看到药草每个只有一种，并且我们只能选择拔出该药草，或者不拔出该药草，我们的时间还是有界限的。那么我们换一个说法，药草我们看为刚才问题中的水果，时间我们看为刚才问题中水果的价值，时间界限我们看为背包容量。我们很自然的将该问题改变为了01背包问题。</p>
+<h6>代码实现</h6>
+<pre><code class="language-c++">struct yaocao {
+    int val;//价值
+    int w;//重量
+}o[Nn];
+int dp[Nn];
+int main() {
+    fastread();
+    int v;//时间容量
+    int n; //药草种类
+    cin &gt;&gt; v &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; o[i].w &gt;&gt; o[i].val;
+    }
+    for (int i = 1; i &lt;= n; i++) { //表示的选择的第几个药草
+        for (int j = v; j &gt;= o[i].w; j--) {  //表示时间
+            dp[j] = max(dp[j], dp[j - o[i].w] + o[i].val);
+        }
+    }
+    cout &lt;&lt; dp[v];
+    return 0;
+}
+</code></pre>
+`;const u=t("div",{class:"glass"},[t("h2",null,"作者碎碎念")],-1),_=["innerHTML"],P={__name:"DP",setup(g){return(m,v)=>{const i=s,o=r,a=c;return e(),h(a,null,{default:n(()=>[p(i,{width:"200px"},{default:n(()=>[u]),_:1}),p(o,null,{default:n(()=>[t("div",{innerHTML:l(d),class:"a"},null,8,_)]),_:1})]),_:1})}}};export{P as default};
