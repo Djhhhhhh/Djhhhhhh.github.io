@@ -1,4 +1,4 @@
-import{A as o,M as s,O as n,J as t,ai as p,u as _}from"./index-7b68c7ba.js";import{c as l,d as c,a as i}from"./el-main-2500c724.js";/* empty css               */const r=`<h2>文档说明</h2>
+import{A as o,M as s,O as n,J as t,ai as p,u as _}from"./index-0529233d.js";import{c as l,d as c,a as i}from"./el-main-3a4f9b95.js";/* empty css               */const r=`<h2>文档说明</h2>
 <p>​	本文档用于记录DP学习和准备选修上课讲授。</p>
 <h2>动态规划引入</h2>
 <p>​	动态规划(Dynamic programming，简称DP)。他是一种将复杂问题转化很多子问题，并将子问题进行求解，并将子问题的答案存储起来，避免重复计算相同子问题的一种算法。</p>
@@ -38,4 +38,12 @@ import{A as o,M as s,O as n,J as t,ai as p,u as _}from"./index-7b68c7ba.js";impo
 <p>​	按照数据形式，线性动态规划解决的问题主要是单串，双串，矩阵上的问题，因为在单串，双串，矩阵上问题规模可以完全用位置表示，并且位置的大小就是问题规模的大小。因此从前往后推位置就相当于从小问题到大问题的推演。</p>
 <p>​	线性动态规划是动态规划最基础的一类，问题的形式，dp状态方程的设计变化会有很多。</p>
 <p>​	对于解决动态规划问题，还是需要结合自己的做题经验去积累。</p>
-`;const u=p("div",{class:"glass"},[p("h2",null,"作者碎碎念")],-1),d=["innerHTML"],M={__name:"DP",setup(m){return(f,x)=>{const e=c,a=i,h=l;return o(),s(h,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[u]),_:1}),t(a,null,{default:n(()=>[p("div",{innerHTML:_(r),class:"a"},null,8,d)]),_:1})]),_:1})}}};export{M as default};
+<h2>背包问题</h2>
+<p>背包问题是线性dp种的典型问题。</p>
+<p>背包问题分为01背包问题，完全背包问题，多重背包问题，接下来我们一一进行讲解。</p>
+<h4>01背包问题</h4>
+<p>​	什么是01背包问题呢？</p>
+<p>​	01背包问题指的是那种，给你一定量的不同物品，每个物品只有一件，你有一个确定容量的背包，根据你的选择你可以选择是否装。</p>
+<p>​	举个例子，你要去水果摊拿水果，每种水果都有两个属性，一个是水果的价值，一个是水果的大小。老板跟你说每种说过你最多只能拿一个。因此我们会想如何拿水果，不超过背包的容量，而且水果的价值最大。</p>
+<p>​</p>
+`;const d=p("div",{class:"glass"},[p("h2",null,"作者碎碎念")],-1),u=["innerHTML"],M={__name:"DP",setup(m){return(f,x)=>{const e=c,h=i,a=l;return o(),s(a,null,{default:n(()=>[t(e,{width:"200px"},{default:n(()=>[d]),_:1}),t(h,null,{default:n(()=>[p("div",{innerHTML:_(r),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{M as default};
