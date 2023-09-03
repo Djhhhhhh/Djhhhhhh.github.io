@@ -1,4 +1,4 @@
-import{A as a,M as o,O as n,J as i,ai as t,u as p}from"./index-ea24d3a4.js";import{c,d as s,a as u}from"./el-main-a6e86d0a.js";/* empty css               */const d=`<h1>STL</h1>
+import{A as a,M as o,O as n,J as i,ai as t,u as p}from"./index-4a14adcf.js";import{c,d as s,a as u}from"./el-main-3ce51a43.js";/* empty css               */const d=`<h1>STL</h1>
 <h2>vector</h2>
 <p>​	vector容器的功能和数组非常相似，使用时可以把它看成一个数组。</p>
 <h4>与普通数组的区别</h4>
@@ -322,6 +322,9 @@ int main() {
 <p>​	memset函数是按照字节对内存块进行初始化，所以不能用它将int数组出初始化为0和-1之外的其他值（除非该值高字节和低字节相同）。</p>
 <h4>例子</h4>
 <pre><code class="language-c++">memset(f, 128, sizeof(f));//初始化极小值 (每个字节赋128会导致自然溢出)
+</code></pre>
+<h2>8.最大整形</h2>
+<pre><code class="language-c++">unsigned long long
 </code></pre>
 <h1>数论</h1>
 <h2>素数</h2>
@@ -1941,8 +1944,8 @@ ll a[Nn];  //原数组
     }
     pushdown(id);
     ll mid = tr[id].l + tr[id].r &gt;&gt; 1;
-    if (l &lt;= mid)ans += find(id * 2, l, r);
-    if (r &gt; mid)ans += find(id * 2 + 1, l, r);
+    if (l &lt;= mid)ans += query(id * 2, l, r);
+    if (r &gt; mid)ans += query(id * 2 + 1, l, r);
     return ans;
 }
 </code></pre>

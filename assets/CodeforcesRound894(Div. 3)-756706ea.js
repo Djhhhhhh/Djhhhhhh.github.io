@@ -1,4 +1,4 @@
-import{A as p,M as c,O as t,J as o,ai as n,u as s}from"./index-ea24d3a4.js";import{c as u,d as r,a}from"./el-main-a6e86d0a.js";/* empty css               */const h=`<h2>[A. Gift Carpet](<a href="https://codeforces.com/contest/1862/problem/A">Problem - A - Codeforces</a>)</h2>
+import{A as p,M as c,O as t,J as o,ai as n,u as s}from"./index-4a14adcf.js";import{c as u,d as r,a}from"./el-main-3ce51a43.js";/* empty css               */const h=`<h2><a href="https://codeforces.com/contest/1862/problem/A">Problem - A - Codeforces</a></h2>
 <h4>思路</h4>
 <p>​	因为n,m最多只有20，所以该题目可暴力解决。每次循环先循环列，再循环行，这是满足题意的方式。然后按照顺序一次记录&quot;vika&quot;每个字母是否出现，找到当前需要找的字母并且未记录过的时候，记录这个字母出现，然后跳过当前次循环。</p>
 <h4>代码实现</h4>
@@ -40,7 +40,7 @@ import{A as p,M as c,O as t,J as o,ai as n,u as s}from"./index-ea24d3a4.js";impo
     return 0;
 }
 </code></pre>
-<h2>[B. Sequence Game](<a href="https://codeforces.com/contest/1862/problem/B">Problem - B - Codeforces</a>)</h2>
+<h2><a href="https://codeforces.com/contest/1862/problem/B">Problem - B - Codeforces</a></h2>
 <h4>思路</h4>
 <p>​	是一道构造题，根据题目中所要求的条件，构造出原序列。该题目很容易看出，开辟一个答案队列，然后你循环数组中的每个位置，若当前数字比前一个数字大，则将该数字扔进队列两次，否则扔进一次。</p>
 <h4>代码实现</h4>
@@ -74,7 +74,7 @@ import{A as p,M as c,O as t,J as o,ai as n,u as s}from"./index-ea24d3a4.js";impo
     return 0;
 }
 </code></pre>
-<h2>[C. Flower City Fence](<a href="https://codeforces.com/contest/1862/problem/C">Problem - C - Codeforces</a>)</h2>
+<h2><a href="https://codeforces.com/contest/1862/problem/C">Problem - C - Codeforces</a></h2>
 <h4>思路</h4>
 <p>​	输入一组序列，让你判断该序列平放和竖放得出的图形，是否是对称图形。我们可以想如果要是两个图像对称的话，两个图形的外围边长所构成的序列必然相反。所以我们可以开两个队列用于存取答案，然后比较得出答案。</p>
 <h4>代码实现</h4>
@@ -152,7 +152,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<h2>[D. Ice Cream Balls](<a href="https://codeforces.com/contest/1862/problem/D">Problem - D - Codeforces</a>)</h2>
+<h2><a href="https://codeforces.com/contest/1862/problem/D">Problem - D - Codeforces</a></h2>
 <h4>思路</h4>
 <p>​	由题目很容易看出，取得距离目标种类数最近且小于的数字的Cn2然后加上种类减去Cn2的数值。得出答案。该题目为1e18，爆longlong，需要使用unsigned long long</p>
 <h4>代码实现</h4>
@@ -187,7 +187,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<h2>[E. Kolya and Movie Theatre](<a href="https://codeforces.com/contest/1862/problem/E">Problem - E - Codeforces</a>)</h2>
+<h2><a href="https://codeforces.com/contest/1862/problem/E">Problem - E - Codeforces</a></h2>
 <h4>思路</h4>
 <p>​	给出一个长度为n的序列，然后让你求出m个数值，且根据题目中所要求取得的数值最大。我们只需要开取一个优先队列，然后从开头到后，将每个大于0的数字扔入队列中，然后每单那个队列中数目大于m的时候，弹出该数字，并将该数字的影响减下去，每次判断是否比记录的答案大，取最大值。</p>
 <h4>代码实现</h4>
@@ -218,4 +218,4 @@ int main() {
     return 0;
 }
 </code></pre>
-`;const g=n("div",{class:"glass"},[n("h2",null,"作者碎碎念"),n("h4",null,"A-D还可以,E题没太懂")],-1),m=["innerHTML"],b={__name:"CodeforcesRound894(Div. 3)",setup(f){return(d,_)=>{const e=r,i=a,l=u;return p(),c(l,null,{default:t(()=>[o(e,{width:"200px"},{default:t(()=>[g]),_:1}),o(i,null,{default:t(()=>[n("div",{innerHTML:s(h),class:"a"},null,8,m)]),_:1})]),_:1})}}};export{b as default};
+`;const g=n("div",{class:"glass"},[n("h2",null,"作者碎碎念"),n("h4",null,"A-D还可以,E题没太懂")],-1),m=["innerHTML"],C={__name:"CodeforcesRound894(Div. 3)",setup(f){return(d,_)=>{const e=r,i=a,l=u;return p(),c(l,null,{default:t(()=>[o(e,{width:"200px"},{default:t(()=>[g]),_:1}),o(i,null,{default:t(()=>[n("div",{innerHTML:s(h),class:"a"},null,8,m)]),_:1})]),_:1})}}};export{C as default};

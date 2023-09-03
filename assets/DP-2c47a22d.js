@@ -1,4 +1,4 @@
-import{A as e,M as h,O as n,J as p,ai as t,u as l}from"./index-ea24d3a4.js";import{c,d as s,a as r}from"./el-main-a6e86d0a.js";/* empty css               */const d=`<h2>文档说明</h2>
+import{A as l,M as e,O as t,J as p,ai as n,u as h}from"./index-4a14adcf.js";import{c,d as r,a as d}from"./el-main-3ce51a43.js";/* empty css               */const s=`<h2>文档说明</h2>
 <p>​	本文档用于记录DP学习和准备选修上课讲授。</p>
 <h2>动态规划引入</h2>
 <p>​	动态规划(Dynamic programming，简称DP)。他是一种将复杂问题转化很多子问题，并将子问题进行求解，并将子问题的答案存储起来，避免重复计算相同子问题的一种算法。</p>
@@ -54,7 +54,7 @@ $$
 dp[j] = max(dp[j], dp[j - o[i].w] + o[i].val)
 $$
 ​	给出的是用滚动数组优化后的方程，个人感觉比二维数组还好理解。</p>
-<h6>核心代码</h6>
+<h6>本例代码实现</h6>
 <pre><code class="language-c++">struct shuiguo {
     int val;//价值
     int w;//重量
@@ -78,7 +78,7 @@ int main() {
 }
 </code></pre>
 <p>​	我们已经学习完了01背包的思想和对应的动态回归方程，让我们做几道题感受一下。</p>
-<h4>[P1048 [NOIP2005 普及组] 采药]([P1048 <a href="https://www.luogu.com.cn/problem/P1048">NOIP2005 普及组] 采药 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h4>
+<h5>[P1048 [NOIP2005 普及组] 采药]([P1048 <a href="https://www.luogu.com.cn/problem/P1048">NOIP2005 普及组] 采药 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h5>
 <h6>思路</h6>
 <p>​	我们首先来分析一下题目的意思，师傅让你去一个山洞探险，山洞里面的药草每一株有他自己的价值，并且每踩一株需要一段时间，山洞里面所有药草都只有一种，要求我们输出在给定时间内可以取到的药草的最大价值。</p>
 <p>​	好了，题目的重点我们已经提取完毕，思维比较好的同学可能现在就已经看出来了，这不就是刚才买水果的问题吗？不要怀疑自己，这个问题就是01背包问题。</p>
@@ -106,4 +106,35 @@ int main() {
     return 0;
 }
 </code></pre>
-`;const u=t("div",{class:"glass"},[t("h2",null,"作者碎碎念")],-1),_=["innerHTML"],P={__name:"DP",setup(g){return(m,v)=>{const i=s,o=r,a=c;return e(),h(a,null,{default:n(()=>[p(i,{width:"200px"},{default:n(()=>[u]),_:1}),p(o,null,{default:n(()=>[t("div",{innerHTML:l(d),class:"a"},null,8,_)]),_:1})]),_:1})}}};export{P as default};
+<h4>完全背包问题</h4>
+<p>​	我们在上文已经讲述过01背包问题，01背包问题的特点是物品有限，背包容量有限。接下来我们要背包问题的另一种，完全背包问题。</p>
+<p>​	首先我们先介绍一下完全背包问题是什么，完全背包问题指的是背包容量依然有限但是物品的数量变成无限个。每个物品都有无数件，只要空间足够多，一种物品可以拿满。</p>
+<p>​	由于水果的例子大家已经懂了，所以在此直接引入题目。</p>
+<h5>[P1616 疯狂的采药](<a href="https://www.luogu.com.cn/problem/P1616">P1616 疯狂的采药 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h5>
+<h6>思路</h6>
+<p>​	让我们先提取一下题目中的重要信息。依旧是去采草药，但是与上一道题不同的是，这道题目中，草药的采摘次数变成了无限次。可见，本题从01背包问题转变成了我们现在所要讲述的完全背包问题。</p>
+<p>​	我们首先来确定一下本题中可能出现的状态，根据想要求出的最优解，必然是在我们在取出不同的药草之后总结出的，根据背包的大小，我们所能取出不同种类的数目将会变得很多，我们这时候就应该采用动态规划的思想。</p>
+<p>​	每一株草药均可以取无限次，那么我们可以将我们的背包剩余容量作为一个轴，在剩余容量为j的时候，我们判断此时是否应该拿一株该草药，如果现在拿草药比我们之前所保存的值要大的话，就刷新当前容量的最优解，该操作的顺序应该是从背包恰好能装下一株该草药开始，然后向后逐步添加，这样才能保证不同容量下，都能存取该种草药最多次，以保证答案的正确性。重复以上操作，根据局部最优解逐步推断出全局最优解。</p>
+<p>​	动态回归方程如下：
+$$
+dp[j]=max(dp[j],dp[j-v[i]]+w[i])
+$$</p>
+<h6>代码实现</h6>
+<pre><code class="language-c++">ll dp[NN];
+int main() {
+    ll n, m;
+    cin &gt;&gt; n &gt;&gt; m;  //n为背包容量   m为药草数目
+    for (int i = 1; i &lt;= m; i++) {    //该层循环用于读入当前草药的数据
+        ll a, b;
+        cin &gt;&gt; a &gt;&gt; b;  //a为草药每株采取所需时间 b为该药草的单价
+        for (int j = a; j &lt;= n; j++) {  //从小到大推背包容量
+            dp[j] = max(dp[j], dp[j - a] + b);  //动态回归方程
+        }
+    }
+    cout &lt;&lt; dp[n];
+    return 0;
+}
+</code></pre>
+<h4>多重背包问题</h4>
+<p>​</p>
+`;const g=n("div",{class:"glass"},[n("h2",null,"作者碎碎念"),n("h4",null,"写这种东西还是有点用的!")],-1),u=["innerHTML"],P={__name:"DP",setup(m){return(_,j)=>{const i=r,o=d,a=c;return l(),e(a,null,{default:t(()=>[p(i,{width:"200px"},{default:t(()=>[g]),_:1}),p(o,null,{default:t(()=>[n("div",{innerHTML:h(s),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{P as default};
