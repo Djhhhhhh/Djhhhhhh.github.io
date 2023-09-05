@@ -1,4 +1,4 @@
-import{A as l,M as e,O as t,J as p,ai as n,u as h}from"./index-4a14adcf.js";import{c,d as r,a as d}from"./el-main-3ce51a43.js";/* empty css               */const s=`<h2>文档说明</h2>
+import{A as a,M as e,O as t,J as p,ai as n,u as c}from"./index-93a4086c.js";import{c as h,d,a as r}from"./el-main-43523dbf.js";/* empty css               */const g=`<h2>文档说明</h2>
 <p>​	本文档用于记录DP学习和准备选修上课讲授。</p>
 <h2>动态规划引入</h2>
 <p>​	动态规划(Dynamic programming，简称DP)。他是一种将复杂问题转化很多子问题，并将子问题进行求解，并将子问题的答案存储起来，避免重复计算相同子问题的一种算法。</p>
@@ -136,5 +136,204 @@ int main() {
 }
 </code></pre>
 <h4>多重背包问题</h4>
-<p>​</p>
-`;const g=n("div",{class:"glass"},[n("h2",null,"作者碎碎念"),n("h4",null,"写这种东西还是有点用的!")],-1),u=["innerHTML"],P={__name:"DP",setup(m){return(_,j)=>{const i=r,o=d,a=c;return l(),e(a,null,{default:t(()=>[p(i,{width:"200px"},{default:t(()=>[g]),_:1}),p(o,null,{default:t(()=>[n("div",{innerHTML:h(s),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{P as default};
+<p>​	多重背包问题是结合了上面两背包特点的复合问题。</p>
+<p>​	多重背包问题中，背包的容量有限，有n种物品，每种物品有它对应的价值val，每种物品每件占一定的体积。要求我们如何将这些物品装入背包中，使物品体积总和不超过背包容量且总价值最大。</p>
+<p>​	我们可以观察到每种物品的数量是有限个的，聪明的同学应该可以想到，我们可以将该问题转化为01背包问题。将每种物品的拆成一个一个单个物品。</p>
+<p>​	按照该思路让我们写一份代码。</p>
+<h5>[U280382 多重背包问题](<a href="https://www.luogu.com.cn/problem/U280382">U280382 多重背包问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h5>
+<h6>思路</h6>
+<p>​	代码思路如上所示。</p>
+<h6>代码实现</h6>
+<pre><code class="language-c++">ll v[N],w[N];
+ll dp[N];
+int main()
+{
+    ll n,m;
+    ll cnt=1;
+    cin&gt;&gt;n&gt;&gt;m;
+    ll a,b,c;
+    for(ll i=1;i&lt;=n;i++)
+    {
+        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+        for(ll j=1;j&lt;=c;j++)
+        {
+            v[cnt]=a;
+            w[cnt]=b;
+            cnt++;
+        }
+    }
+    for(ll i=1;i&lt;=cnt;i++)
+    {
+        for(ll j=m;j&gt;=v[i];j--)
+        {
+            dp[j]=max(dp[j],dp[j-v[i]]+w[i]);
+        }
+    }
+    cout&lt;&lt;dp[m];
+    return 0;
+}
+</code></pre>
+<h2>子序列与子串的区别</h2>
+<p>​	在介绍下列问题之前，首先要向大家普及一个基础知识。</p>
+<p>​	子串：按原顺序依次出现，禁止跳过某元素</p>
+<p>​	子序列：在保持元素前后关系的前提下，可以跳过某些元素的序列</p>
+<p>​	举个例子：1 2 3 4 5 6 7 8 9</p>
+<p>​	它的子序列有：1 3 4 5 ，2 4 5 8...</p>
+<p>​	它的子串有：1 2，2 3，3 4 5，6 7 8 9.....</p>
+<h2>LIS问题</h2>
+<p>​	最长上升子序列问题。</p>
+<p>​	让我们来介绍一下什么是LIS问题：给你一个无序的数字序列，让你寻找到在这个数列中，长度最长的上升子序列。</p>
+<p>​	举个例子：1 3 2 2 4 5 6 7 4 9</p>
+<p>​	它的最长不降子序列为：1 3 4 5 6 7 9</p>
+<p>​	严格来说最长不降子序列也属于LIS问题。</p>
+<h4>状态方程设计</h4>
+<p>​	在数列中，对于每个数据，它所对应的对于它之前的所有数据，它必然存在一个固定的最长子序列，则证明从一到该点的长度唯一。所以在我们设计状态回归方程的时候，dp中i表示以i结尾的数据的最长单调子序列的长度。</p>
+<p>​	那么我们的状态dp中存储的就是以Ai为结尾的LIS长度。</p>
+<p>​	然后我们来确定状态的初态，第一个值的LIS长度必然为1所以我们初始化dp1为1。</p>
+<p>​	可得出状态回归方程
+$$
+dp[i]=max(dp[i],dp[j]+1)
+$$</p>
+<p>​	该问题的时间复杂度为：O(N^2)</p>
+<h4>[P1020 [NOIP1999 普及组] 导弹拦截]([P1020 <a href="https://www.luogu.com.cn/problem/P1020">NOIP1999 普及组] 导弹拦截 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h4>
+<h6>思路讲解</h6>
+<p>​	首先我们解读一下题意，题目中给出一种导弹拦截系统，该系统的拦截规则为，在拦截每个导弹的时候拦截该个导弹一定要比前一个导弹高度低。由于只有这一种规则，不一定一个拦截装置就可以拦截所有的导弹。题目中有两个问题，问题一：让我们求出该系统可以最多拦截多少导弹，问题二：如果我们要拦截所有导弹最少要配备多少导弹拦截系统。</p>
+<p>​	对于问题一，我们会有疑问，题目中很明显要求我们的是求出最长下降子序列啊，跟我们所研究的LIS问题完全相。那么，我们可以将题目中所给的序列反着看，问题就变成了找最长上升子序列。</p>
+<p>​	或者，我们可以修改dp中的判断，让我们求出的就是最长下降子序列的个数。</p>
+<p>​	对于问题二，要求我们求出最少需要多少组该装置才能拦截所有的导弹。我们可以想到，所有的导弹均是由前一个系统来拦截的，每拦截一个导弹，该系统所能拦截的最大高度下降，所以我们统计问题二的答案的时候，我们求出给定的数字序列中，最长上升子序列即可。</p>
+<h6>代码实现</h6>
+<pre><code class="language-c++">int dp[Nn];
+int a[Nn];
+int main() {
+    fastread();
+    int n = 0;
+    int ans = 0;
+    while (cin &gt;&gt; a[++n]);
+    for (int i = 1; i &lt;= n-1; i++) {  //求最长不升子序列
+        dp[i] = 1;
+        for (int j = 1; j &lt; i; j++) {
+            if (a[j] &gt;= a[i]) {
+                dp[i] = max(dp[i], dp[j] + 1);
+            }
+        }
+        ans = max(ans, dp[i]);
+    }
+    cout &lt;&lt; ans&lt;&lt;&quot;\\n&quot;;
+    ans = 0;
+    for (int i = 1; i &lt;= n - 1; i++) {  //求最长不升子序列
+        dp[i] = 1;
+        for (int j = 1; j &lt; i; j++) {
+            if (a[j] &lt; a[i]) {
+                dp[i] = max(dp[i], dp[j] + 1);
+            }
+        }
+        ans = max(ans, dp[i]);
+    }
+    cout &lt;&lt; ans;
+    return 0;
+}
+</code></pre>
+<h2>LIS问题优化</h2>
+<p>​	新建一个low数组，low[i]表示长度为i的LIS结尾元素的最小值。对于一个上升子序列，显然其结尾元素越小，越有利于在后面接其他的元素，也就越可能变得更长。因此，我们只需要维护low数组，对于每一个a[i]，如果a[i] &gt; low[当前最长的LIS长度]，就把a[i]接到当前最长的LIS后面，即low[++当前最长的LIS长度]=a[i]。</p>
+<p>​		对于每一个a[i]，如果a[i]能接到LIS后面，就接上去；否则，就用a[i]取更新low数组。具体方法是，在low数组中找到第一	个大于等于a[i]的元素low[j]，用a[i]去更新low[j]。如果从头到尾扫一遍low数组的话，时间复杂度仍是O(n^2)。我们注意到	low数组内部一定是单调不降的，所有我们可以二分low数组，找出第一个大于等于a[i]的元素。二分一次low数组的时间复	杂度的O(logn)，所以总的时间复杂度是O(nlogn)。</p>
+<h4>[P1020 [NOIP1999 普及组] 导弹拦截]([P1020 <a href="https://www.luogu.com.cn/problem/P1020">NOIP1999 普及组] 导弹拦截 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h4>
+<h4>思路</h4>
+<p>​	同上文。</p>
+<h4>代码实现</h4>
+<pre><code class="language-c++">int low[Nn];
+int a[Nn];
+int low2[Nn];
+int main() {
+    fastread();
+    int n = 0;
+    while (cin &gt;&gt; a[++n]);
+    memset(low, MAXN, sizeof(low));
+    memset(low2, MAXN, sizeof(low2));
+    low[1] = a[1];
+    low2[1] = a[1];
+    int ans = 1;
+    int ans2 = 1;
+    n--;
+    for (int i = 2; i &lt;= n; i++) { 
+        if (a[i] &lt;= low[ans]) {//求最长不增子序列
+            low[++ans] = a[i];
+        }
+        else {
+            low[upper_bound(low + 1, low + 1 + ans, a[i], greater&lt;int&gt;()) - low] = a[i];
+        }
+        if (a[i] &gt; low2[ans2]) {//求最长上升子序列
+            low2[++ans2] = a[i];
+        }
+        else {
+            low2[lower_bound(low2 + 1, low2 + 1 + ans2, a[i]) - low2] = a[i];
+        }
+    }
+    cout &lt;&lt; ans &lt;&lt; &quot;\\n&quot; &lt;&lt; ans2;
+    return 0;
+}
+</code></pre>
+<h2>LCS问题</h2>
+<p>​	最长公共子序列问题。</p>
+<p>​	LCS问题的描述为：给定两个整数序列a和b，找它们所有的公共子序列中最长的序列，输出其长度。</p>
+<h4>状态方程设计</h4>
+<p>​	在我们解决LIS问题的时候，是对于单个序列的研究，但LCS问题的结果同时受到两个序列的影响，所以状态需要用2维表示。</p>
+<p>​	那我们就可以以dpij表示a中从1到i，b中从1到j范围内最长的公共子序列长度，那么考虑对于状态dpij可以由那些转台转移来，我们可以做出以下分析。</p>
+<p>​	若ai=bj那么ai,bj同时属于公共子序列，dpij就应该是由dp i-1 j-1转移过来的，并且转移的时候长度+1。若ai!=bj那么ai与bj不能同属于公共子序列，此基础上细分出：ai不属于公共子序列：dpij由dpi-1 j转移过来。bj不属于公共子序列：dpij由dpi j-1转移而来，dpij = dpi j-1。ai和bj都不属于公共子序列，该种决策可以舍去，dpi j的更新均是由dp i-1 j-1转移过来的，其一定大于dpi-1 j-1。</p>
+<p>​	根据以上分析我们可以得出状态转移方程：
+$$
+dp[i][j]=max(max(dp[i-1][j],dp[i][j]),dp[i-1][j-1]+(a[i-1]==b[j-1]))
+$$</p>
+<h4>[P1439 【模板】最长公共子序列](<a href="https://www.luogu.com.cn/problem/P1439">P1439 【模板】最长公共子序列 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h4>
+<h5>思路</h5>
+<p>​	与上文所描述相同。</p>
+<h5>代码实现</h5>
+<pre><code class="language-c++">int dp[nN][nN];
+int a[nN], b[nN];
+int main() {
+    fastread();
+    int n;
+    cin&gt;&gt;n;
+    for(int i=0;i&lt;n;i++)cin&gt;&gt;a[i];
+    for(int i=0;i&lt;n;i++)cin&gt;&gt;b[i];
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 1; j &lt;= n+1; j++) {
+            dp[i][j] = max(max(dp[i - 1][j] + 1, dp[i][j - 1] + 1), dp[i - 1][j - 1] + (a[i - 1] != b[j - 1]));
+        }
+    }
+    cout &lt;&lt; dp[n][n];
+    return 0;
+}
+</code></pre>
+<h2>LCS问题优化</h2>
+<p>​	在讲述LCS问题中，我们可以发现，LCS问题的时间复杂度是O(n^2)，在绝大部分问题中，这个时间复杂度是不能被容忍的，那么我们是否可以考虑一中方式，来讲LCS问题优化掉。</p>
+<p>​	我们考虑一下，如何将LCS问题转化为LIS问题进行处理。</p>
+<p>​	我们想到如下优化方式：将B序列的数字编号，对应到A数组中，在A数组中寻找最长上升子序列，该最长子序列就为两序列的最长公共子序列，如此LCS问题转化为LIS问题。</p>
+<h4>[P1439 【模板】最长公共子序列](<a href="https://www.luogu.com.cn/problem/P1439">P1439 【模板】最长公共子序列 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h4>
+<h5>思路</h5>
+<p>​	与上文所描述相同。</p>
+<h5>代码实现</h5>
+<pre><code class="language-c++">int o[Nn];
+int n;
+map&lt;int, int&gt;p;
+int low[Nn];
+int main() {
+    fastread();
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++)cin &gt;&gt; o[i];
+    for (int i = 1; i &lt;= n; i++) {  //离散化
+        int k; cin &gt;&gt; k; p[k] = i;
+    }
+    int ans = 0;
+    for (int i = 1; i &lt;= n; i++) {
+        if (p[o[i]] &gt; low[ans]) {  //LIS求最长不降子序列
+            low[++ans] = p[o[i]];
+        }
+        else {
+            low[lower_bound(low + 1, low + 1 + ans, p[o[i]]) - low] = p[o[i]];
+        }
+    }
+    cout &lt;&lt; ans;
+    return 0;
+}
+</code></pre>
+`;const s=n("div",{class:"glass"},[n("h2",null,"作者碎碎念"),n("h4",null,"写这种东西还是有点用的!")],-1),u=["innerHTML"],b={__name:"DP",setup(j){return(w,m)=>{const i=d,l=r,o=h;return a(),e(o,null,{default:t(()=>[p(i,{width:"200px"},{default:t(()=>[s]),_:1}),p(l,null,{default:t(()=>[n("div",{innerHTML:c(g),class:"a"},null,8,u)]),_:1})]),_:1})}}};export{b as default};

@@ -1,4 +1,4 @@
-import{A as a,M as o,O as n,J as i,ai as t,u as p}from"./index-4a14adcf.js";import{c,d as s,a as u}from"./el-main-3ce51a43.js";/* empty css               */const d=`<h1>STL</h1>
+import{A as a,M as o,O as n,J as i,ai as t,u as p}from"./index-93a4086c.js";import{c,d as s,a as u}from"./el-main-43523dbf.js";/* empty css               */const d=`<h1>STL</h1>
 <h2>vector</h2>
 <p>​	vector容器的功能和数组非常相似，使用时可以把它看成一个数组。</p>
 <h4>与普通数组的区别</h4>
@@ -2221,6 +2221,9 @@ int main() {
 </code></pre>
 <h4>线性动态规划</h4>
 <p>​	一类状态定义与题设内容线性相关的动态规划。</p>
+<h4>子序列与子串的区别</h4>
+<p>​	子串：按原顺序依次出现，禁止跳过某元素</p>
+<p>​	子序列：在保持元素前后关系的前提下，可以跳过某些元素的序列</p>
 <h4>LIS问题</h4>
 <p>​	最长上升子序列。</p>
 <p>​	且在不严格来讲，最长不降子序列也属于LIS问题。</p>
@@ -2266,7 +2269,7 @@ int main() {
 }
 </code></pre>
 <h5>贪心+二分解法</h5>
-<p>​		新建一个low数组，low[i]表示长度为i的LIS结尾元素的最小值。对于一个上升子序列，显然其结尾元素越小，越有利于在	后面接其他的元素，也就越可能变得更长。因此，我们只需要维护low数组，对于每一个a[i]，如果a[i] &gt; low[当前最长的LIS	长度]，就把a[i]接到当前最长的LIS后面，即low[++当前最长的LIS长度]=a[i]。</p>
+<p>​		新建一个low数组，low[i]表示长度为i的LIS结尾元素的最小值。对于一个上升子序列，显然其结尾元素越小，越有利于在后面接其他的元素，也就越可能变得更长。因此，我们只需要维护low数组，对于每一个a[i]，如果a[i] &gt; low[当前最长的LIS长度]，就把a[i]接到当前最长的LIS后面，即low[++当前最长的LIS长度]=a[i]。</p>
 <p>​		对于每一个a[i]，如果a[i]能接到LIS后面，就接上去；否则，就用a[i]取更新low数组。具体方法是，在low数组中找到第一	个大于等于a[i]的元素low[j]，用a[i]去更新low[j]。如果从头到尾扫一遍low数组的话，时间复杂度仍是O(n^2)。我们注意到	low数组内部一定是单调不降的，所有我们可以二分low数组，找出第一个大于等于a[i]的元素。二分一次low数组的时间复	杂度的O(logn)，所以总的时间复杂度是O(nlogn)。</p>
 <h6>例题</h6>
 <p>​	P1020 [NOIP1999 普及组] 导弹拦截（[题目链接]([P1020 <a href="https://www.luogu.com.cn/problem/P1020">NOIP1999 普及组] 导弹拦截 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)）</p>
@@ -2304,8 +2307,6 @@ int main() {
 </code></pre>
 <h4>LCS问题</h4>
 <p>​	最长公共子序列。</p>
-<p>​	子串：按原顺序依次出现，禁止跳过某元素</p>
-<p>​	子序列：在保持元素前后关系的前提下，可以跳过某些元素的序列</p>
 <p>​	状态转移方程：
 $$
 dp[i][j]=max(max(dp[i-1][j],dp[i][j]),dp[i-1][j-1]+(a[i-1]==b[j-1]))
