@@ -1,4 +1,4 @@
-import{A as o,M as c,O as n,J as e,ai as t,u as s}from"./index-c4572e8b.js";import{c as r,d as u,a as g}from"./el-main-b88ed798.js";/* empty css               */const h=`<h2><a href="https://vjudge.net/problem/CodeForces-124A">A - The number of positions</a></h2>
+import{A as o,M as c,O as n,J as e,ai as t,u as s}from"./index-0ea1ddc0.js";import{c as r,d as u,a as g}from"./el-main-8fc2aa28.js";/* empty css               */const h=`<h2><a href="https://vjudge.net/problem/CodeForces-124A">A - The number of positions</a></h2>
 <h4>思路</h4>
 <p>​	给定一个长度为n的队，求站他前面的人不少于a人，站他后面的人不超过b人的情况有多少种。根据a，b设定值不同，能站在的最前面的位置和后面位置数量确定，求出两种位置可能性数量较小的就是答案。</p>
 <h4>代码实现</h4>

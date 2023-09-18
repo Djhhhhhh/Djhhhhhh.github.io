@@ -1,4 +1,4 @@
-import{A as a,M as o,O as n,J as i,ai as t,u as p}from"./index-c4572e8b.js";import{c,d as s,a as u}from"./el-main-b88ed798.js";/* empty css               */const d=`<h1>STL</h1>
+import{A as a,M as o,O as n,J as i,ai as t,u as p}from"./index-0ea1ddc0.js";import{c,d as s,a as u}from"./el-main-8fc2aa28.js";/* empty css               */const d=`<h1>STL</h1>
 <h2>vector</h2>
 <p>​	vector容器的功能和数组非常相似，使用时可以把它看成一个数组。</p>
 <h4>与普通数组的区别</h4>
@@ -327,6 +327,11 @@ int main() {
 <pre><code class="language-c++">unsigned long long
 </code></pre>
 <h1>数论</h1>
+<h2>Π的大小</h2>
+<h4>模板</h4>
+<p>该函数在cmath里</p>
+<pre><code class="language-c++">#define PI = acos(-1);
+</code></pre>
 <h2>素数</h2>
 <p>​</p>
 <p>​	素数又叫质数（prime number），有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数。</p>

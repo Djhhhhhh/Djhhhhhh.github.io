@@ -1,4 +1,4 @@
-import{A as p,M as c,O as t,J as o,ai as n,u as s}from"./index-c4572e8b.js";import{c as u,d as r,a}from"./el-main-b88ed798.js";/* empty css               */const h=`<h2><a href="https://codeforces.com/contest/1862/problem/A">Problem - A - Codeforces</a></h2>
+import{A as p,M as c,O as t,J as o,ai as n,u as s}from"./index-0ea1ddc0.js";import{c as u,d as r,a}from"./el-main-8fc2aa28.js";/* empty css               */const h=`<h2><a href="https://codeforces.com/contest/1862/problem/A">Problem - A - Codeforces</a></h2>
 <h4>思路</h4>
 <p>​	因为n,m最多只有20，所以该题目可暴力解决。每次循环先循环列，再循环行，这是满足题意的方式。然后按照顺序一次记录&quot;vika&quot;每个字母是否出现，找到当前需要找的字母并且未记录过的时候，记录这个字母出现，然后跳过当前次循环。</p>
 <h4>代码实现</h4>
