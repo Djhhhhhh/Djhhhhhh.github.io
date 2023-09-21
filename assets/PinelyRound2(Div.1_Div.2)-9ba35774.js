@@ -1,4 +1,4 @@
-import{A as c,M as a,O as t,J as l,ai as n,u as s}from"./index-0ea1ddc0.js";import{c as r,d as p,a as u}from"./el-main-8fc2aa28.js";/* empty css               */const _=`<h2><a href="https://codeforces.com/contest/1863/problem/A">A. Channel</a></h2>
+import{A as c,M as a,O as t,J as l,ai as n,u as s}from"./index-a5b235af.js";import{c as r,d as p,a as u}from"./el-main-029f4d07.js";/* empty css               */const _=`<h2><a href="https://codeforces.com/contest/1863/problem/A">A. Channel</a></h2>
 <h4>思路</h4>
 <p>​	给你一个现在观看人数，和一个目标观看人数，如果在访问中+号的数量加上最初观看人数大于等于目标观看人数，则maybe，在输入访问记录的期间记录+和-的数量，进行运算来判断中途是否有可能所有人都在线。</p>
 <h4>代码实现</h4>

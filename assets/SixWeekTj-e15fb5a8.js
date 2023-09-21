@@ -1,4 +1,4 @@
-import{A as l,M as r,O as t,J as i,ai as n,u as s}from"./index-0ea1ddc0.js";import{c as p,d as g,a as c}from"./el-main-8fc2aa28.js";/* empty css               */const u=`<h2><a href="https://vjudge.net/problem/CodeForces-1549B">A - Gregor and the Pawn Game</a></h2>
+import{A as l,M as r,O as t,J as i,ai as n,u as s}from"./index-a5b235af.js";import{c as p,d as g,a as c}from"./el-main-029f4d07.js";/* empty css               */const u=`<h2><a href="https://vjudge.net/problem/CodeForces-1549B">A - Gregor and the Pawn Game</a></h2>
 <h4>思路</h4>
 <p>​	只有第一行存在敌人，你的棋子从最后一行走上来，中间所有位置都没有敌人，所以中间只需要向上走，然后在走到第二行的位置上的时候，只需要给定你的棋子走步的一个优先级顺序，就可以判定出该棋子是否可以走到第一行上。</p>
 <h4>代码实现</h4>

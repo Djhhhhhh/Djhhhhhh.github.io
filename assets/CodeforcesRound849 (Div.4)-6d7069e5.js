@@ -1,4 +1,4 @@
-import{A as a,M as o,O as t,J as l,ai as n,u as d}from"./index-0ea1ddc0.js";import{c,d as s,a as u}from"./el-main-8fc2aa28.js";/* empty css               */const p=`<h2><a href="https://vjudge.net/problem/CodeForces-1791A">A - Codeforces Checking</a></h2>
+import{A as a,M as o,O as t,J as l,ai as n,u as d}from"./index-a5b235af.js";import{c,d as s,a as u}from"./el-main-029f4d07.js";/* empty css               */const p=`<h2><a href="https://vjudge.net/problem/CodeForces-1791A">A - Codeforces Checking</a></h2>
 <h4>思路</h4>
 <p>​	判断输入的字符是否为codeforces中的一个，经典div4白痴题。</p>
 <h4>代码实现</h4>

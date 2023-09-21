@@ -1,4 +1,4 @@
-import{A as l,M as s,O as t,J as e,ai as n,u}from"./index-0ea1ddc0.js";import{c as i,d as r,a as _}from"./el-main-8fc2aa28.js";/* empty css               */const p=`<h2><a href="https://codeforces.com/contest/1861/problem/A">A.Prime Deletion</a></h2>
+import{A as l,M as s,O as t,J as e,ai as n,u}from"./index-a5b235af.js";import{c as i,d as r,a as _}from"./el-main-029f4d07.js";/* empty css               */const p=`<h2><a href="https://codeforces.com/contest/1861/problem/A">A.Prime Deletion</a></h2>
 <h4>思路</h4>
 <p>​	因给定的数列是由不重复的1-9个数字组成，那么我们只需要拿出第一位然后输出一个十位是该数字的质数就能满足题意。</p>
 <h4>代码实现</h4>

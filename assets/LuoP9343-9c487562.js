@@ -1,4 +1,4 @@
-import{A as l,M as a,O as n,J as i,ai as t,u as c}from"./index-0ea1ddc0.js";import{c as _,d as r,a as u}from"./el-main-8fc2aa28.js";/* empty css               */const d=`<h2>P9343 一曲新词酒一杯</h2>
+import{A as l,M as a,O as n,J as i,ai as t,u as c}from"./index-a5b235af.js";import{c as _,d as r,a as u}from"./el-main-029f4d07.js";/* empty css               */const d=`<h2>P9343 一曲新词酒一杯</h2>
 <h3>[题目链接](<a href="https://www.luogu.com.cn/problem/P9343">P9343 一曲新词酒一杯 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a>)</h3>
 <h4>思路</h4>
 <p>​	题目共两种操作。第一种操作只能让特定的一杯贴上标签，第二种操作是选中的杯子以外的所有的杯子贴上标签。询问你至少在几次操作之后，所有的杯子至少被贴上了一张标签。</p>
