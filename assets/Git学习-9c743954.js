@@ -104,4 +104,11 @@ const n={},t=`<h2>Git的使用方式</h2>
 <p>​	    4.git diff 版本id 版本id 查看两个版本的内容。</p>
 <p>​	    5.git diff 文件名   查看文件的差异内容</p>
 <p>​	    6.git diff分支名 查看分支之间的差异。</p>
+<h2>常用流程</h2>
+<h4>git add .</h4>
+<p>​	用于提交更改。</p>
+<h4>git status</h4>
+<p>​	用于查看仓库状态。</p>
+<h4>git push -u origin(分支名) master</h4>
+<p>​	用于提交修改。</p>
 `;export{n as attributes,t as html};
