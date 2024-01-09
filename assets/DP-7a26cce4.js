@@ -38,6 +38,33 @@ const n={},t=`<h2>文档说明</h2>
 <p>​	按照数据形式，线性动态规划解决的问题主要是单串，双串，矩阵上的问题，因为在单串，双串，矩阵上问题规模可以完全用位置表示，并且位置的大小就是问题规模的大小。因此从前往后推位置就相当于从小问题到大问题的推演。</p>
 <p>​	线性动态规划是动态规划最基础的一类，问题的形式，dp状态方程的设计变化会有很多。</p>
 <p>​	对于解决动态规划问题，还是需要结合自己的做题经验去积累。</p>
+<h2>最长增长子序列</h2>
+<p>​	你的工作是计算子序列的最大和。</p>
+<h4>代码实现</h4>
+<pre><code class="language-c++">void solve() {
+    ll n; cin &gt;&gt; n;
+    vector&lt;ll&gt;o(n);
+    for (int i = 0; i &lt; n; i++)cin &gt;&gt; o[i];
+    ll l = 0;
+    ll r = 0;
+    ll be = 0;
+    ll sum = 0;
+    ll mx = -2222;
+    for (int i = 0; i &lt; n; i++) {
+        sum += o[i];
+        if (sum &gt; mx) {
+            mx = sum;
+            l = be;
+            r = i;
+        }
+        if (sum &lt; 0) {
+            be = i + 1;
+            sum = 0;
+        }
+    }
+    cout &lt;&lt; mx &lt;&lt; &quot; &quot; &lt;&lt; l + 1 &lt;&lt; &quot; &quot; &lt;&lt; r + 1 &lt;&lt; &quot;\\n&quot;;
+}
+</code></pre>
 <h2>背包问题</h2>
 <p>背包问题是线性dp种的典型问题。</p>
 <p>背包问题分为01背包问题，完全背包问题，多重背包问题，接下来我们一一进行讲解。</p>

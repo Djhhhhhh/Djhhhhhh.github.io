@@ -66,6 +66,19 @@ iota(v.begin(),v.end(),1);
 <h4>构造定长重复字符</h4>
 <pre><code class="language-c++">string(i,'c')
 </code></pre>
+<h2>reverse</h2>
+<h4>字符串翻转</h4>
+<pre><code class="language-c++">reverse(k.begin(),k.end())
+</code></pre>
+<h2>substring</h2>
+<h4>字符串截取</h4>
+<pre><code class="language-c++">substr(int beginIndex,int endIndex)
+</code></pre>
+<h2>replace</h2>
+<h4>字符串替换</h4>
+<pre><code>string line = &quot;this@ is@ a test string!&quot;;  
+line = line.replace(line.find(&quot;@&quot;), 1, &quot;&quot;);
+</code></pre>
 <h2>lambda表达式</h2>
 <h4>有返回值</h4>
 <pre><code class="language-c++">//[捕获列表](参数列表)-&gt;返回类型{函数体}
@@ -1141,47 +1154,6 @@ int main() {
 }
 </code></pre>
 <p>​	该题并非标准二分答案</p>
-<h2>并查集</h2>
-<p>​	并查集是一种十分精巧且实用的树形数据结构，它主要处理一些不相交集合的合并与查询问题。</p>
-<h4>实现</h4>
-<pre><code class="language-c++">int f[NN];   //父亲数组
-//第一种查询 查找速度慢 但合并效率高
-int find(int x) {   //查询函数
-    while (x != f[x]) {    //若父亲不是自己 访问父亲节点
-        x = f[x];
-    }    //直至访问到根节点
-    return x;
-}
-//第二种查询
-int find(int x) {
-    if (x == f[x]) {
-        return x;
-    }
-    else {
-        f[x] = find(f[x]);
-        return f[x];
-    }
-}
-int main() {
-    fastread();
-    int n;
-    cin &gt;&gt; n;   //共输入n种数据
-    for (int i = 1; i &lt;= n; i++) {
-        f[i] = i;
-    }  //先初始化 让每个元素的父亲为自己
-    int k;   //输入k种关系
-    int ff, zz;
-    for (int i = 1; i &lt;= k; i++) {
-        cin &gt;&gt; ff &gt;&gt; zz;
-        int num1 = find(ff);  //取得一号父亲节点
-        int num2 = find(ff);  //取得二号父亲节点
-        if (num1 != num2) {   //若两个节点的节点不一致 则统一
-            f[num1] = num2;  //合并
-        }
-    }
-    return 0;
-}
-</code></pre>
 <h2>悬线法</h2>
 <p>​	用于求解最大子矩阵问题。</p>
 <h4>思想与状态转移方程</h4>
@@ -1645,6 +1617,91 @@ int main() {
 	}
 	cout &lt;&lt; len1 - nextn[len1-1];
     return 0;
+}
+</code></pre>
+<h2>最小区间覆盖问题</h2>
+<p>​	给定n个区间和一个范围[a, b],选择尽量少的区间，使得[a, b]能够被完全覆盖。</p>
+<h4>贪心思路</h4>
+<pre><code class="language-c++">while(剩余区间数目不为0)
+{
+    if(总长度已经超出覆盖范围)
+    {
+        结束循环；
+    }
+    for(循环查找符合条件的下一个最大区间)；
+    if(找到了)
+    {
+        答案数+1；
+        总长度 += 最大能切换的区间长度；
+    }else
+    {
+        表示不能完全覆盖，退出循环，答案数 = 0；
+    }
+}
+</code></pre>
+<h4>模板</h4>
+<pre><code class="language-c++">struct line {
+    ll id = 0;
+    ll l = 0;
+    ll r = 0;
+    line(ll id, ll l, ll chang) {
+        this-&gt;id = id;
+        this-&gt;l = l;
+        this-&gt;r = l + chang - 1;
+    }
+};
+void solve() {
+    string k; cin &gt;&gt; k;
+    ll n; cin &gt;&gt; n;
+    vector&lt;line&gt;now;
+    now.clear();
+    for (int i = 0; i &lt; n; i++) {
+        string x; cin &gt;&gt; x;
+        for (int j = 0; j &lt; k.size() - x.size()+1; j++) {
+            if (x == k.substr(j, x.size())) {
+                now.push_back(line(i, j, x.size()));
+            }
+        }
+    }
+    if (now.size() == 0) {
+        cout &lt;&lt; &quot;-1\\n&quot;; return;
+    }
+    sort(now.begin(), now.end(), [&amp;](line a, line b) {
+        if (a.l != b.l)return a.l &lt; b.l;
+        return a.r &gt; b.r;
+        });
+    if (now[0].l &gt; 0) {  //当第一个区间连0都不能覆盖的时候跳出程序
+        cout &lt;&lt; &quot;-1\\n&quot;;
+        return;
+    }
+    vector&lt;line&gt;ans;
+    ans.clear();
+    ans.push_back(now[0]);
+    ll r = now[0].r; //当前能够覆盖的最右端
+    ll rr = r;//用于判断当前区间的左端点是否在范围内
+    ll cnt = 1;//当前选中的时第几个线段
+    ll nn = now.size();//区间个数
+    ll mm = k.size();//最大范围
+    while (cnt &lt; nn &amp;&amp; rr &lt; mm - 1) {
+        if (now[cnt].l &gt; rr+1) {//比前一个右端点还大，直接退出
+            cout &lt;&lt; &quot;-1\\n&quot;; return;
+        }
+        ll id = -1;
+        while (cnt &lt; nn &amp;&amp; r &lt; mm&amp;&amp;now[cnt].l &lt;= rr + 1) {
+            if (now[cnt].r &gt; r) {
+                id = cnt;
+                r = now[cnt].r;
+            }
+            cnt++;
+        }
+        ans.push_back(now[id]);
+        rr = r;
+    }
+    if (rr &lt; mm-1) { //没有完整覆盖
+        cout &lt;&lt; &quot;-1\\n&quot;; return;
+    }
+    cout &lt;&lt; ans.size() &lt;&lt; &quot;\\n&quot;;
+    for (int i = 0; i &lt; ans.size(); i++)cout &lt;&lt; ans[i].id + 1 &lt;&lt; &quot; &quot; &lt;&lt; ans[i].l + 1 &lt;&lt; &quot;\\n&quot;;
 }
 </code></pre>
 <h1>数据结构</h1>
@@ -2950,15 +3007,8 @@ int main() {
 </code></pre>
 <h4>邻接表存储</h4>
 <p>​	使用动态数组来存边。其中每个数组存取的是所有出边的相关信息。</p>
-<pre><code class="language-c++">struct node{
-	vector&lt;int&gt; v;
-}a[MAXN];
-for (int i = 1 ; i &lt;= m ; i ++) {
-	int u , v;
-	scanf(&quot;%d %d&quot;, &amp;u , &amp;v);
-	a[u].v.push_back(v);
-	a[v].v.push_back(u);	
-} 
+<pre><code class="language-c++">ll val[210000];
+vector&lt;ll&gt;to[210000];
 </code></pre>
 <h4>链式前向星</h4>
 <p>​	如果说邻接表是不好写但效率好，邻接矩阵是好写但效率低的话，前向星就是一个相对中庸的数据结构。前向星固然好写，但效率并不高。而在优化为链式前向星后，效率也得到了较大的提升。</p>
