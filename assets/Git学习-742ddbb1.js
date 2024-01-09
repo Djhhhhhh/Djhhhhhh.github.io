@@ -73,7 +73,7 @@ const n={},t=`<h2>Git的使用方式</h2>
 <pre><code class="language-cmd">git init
 </code></pre>
 <h4>添加到暂存区</h4>
-<pre><code class="language-cmd">git add
+<pre><code class="language-cmd">git add .
 </code></pre>
 <h4>提交</h4>
 <pre><code class="language-cmd">git commit -m &quot;提交附带的信息&quot;
