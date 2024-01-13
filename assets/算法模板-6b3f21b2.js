@@ -102,6 +102,18 @@ int main()
 	return 0;
 }
 </code></pre>
+<h2>std::accumulate</h2>
+<h4>数组或迭代器累加器</h4>
+<pre><code class="language-c++">int myfunction (int x, int y) {return x+2*y;}
+int init = 100;
+int numbers[] = {10,20,30};
+std::cout &lt;&lt; std::accumulate(numbers,numbers+3,init);
+//160
+std::cout &lt;&lt; std::accumulate (numbers, numbers+3, init, myfunction);
+//220
+std::cout &lt;&lt; std::accumulate (numbers, numbers+3, init, std::minus&lt;int&gt;());
+//40
+</code></pre>
 <h1>常见的优化方法</h1>
 <h2>1.快速读写</h2>
 <p>​	C++的cin和cout的速度很慢，在oj上会浪费大量时间，这是因为cin和cout与stdio之间的同步锁，这样可以将读写速度大幅提升。</p>

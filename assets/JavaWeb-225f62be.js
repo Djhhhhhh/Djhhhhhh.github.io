@@ -109,5 +109,15 @@ const n={},t=`<h2>Maven</h2>
 <p>​	Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器。</p>
 <h2>请求响应</h2>
 <h4>简单参数</h4>
-<p>​</p>
+<p>​	在原始web程序中，获取请求参数，需要通过HttpServletRequest对象手动获取。</p>
+<h4>SpringBoot方式</h4>
+<p>​	参数名与形参变量名相同，定义形参即可接受参数。</p>
+<p>​	如果形参名称与参数名称不匹配，我们可以使用</p>
+<pre><code class="language-java">@RequestRaram(name=&quot;name&quot;)
+</code></pre>
+<p>​	来完成映射。</p>
+<h4>简单实体参数</h4>
+<p>​	请求参数名与形参对象属性名相同，定义实体对象。</p>
+<h4>复杂实体对象</h4>
+<p>​	请求参数名与形参对象属性名相同，按照对象层次结构关系即可访问。</p>
 `;export{n as attributes,t as html};
