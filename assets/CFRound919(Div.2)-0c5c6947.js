@@ -54,4 +54,25 @@ const n={},t=`<h2>A. Satisfying Constraints</h2>
     cout &lt;&lt; ans &lt;&lt; &quot;\\n&quot;;
 }
 </code></pre>
+<h2>C. Partitioning the Array</h2>
+<h4>思路</h4>
+<p>​	对于同余性质的应用，暂时没有好的理解，之后会对该位置进行补充。</p>
+<h4>代码实现</h4>
+<pre><code class="language-c++">void solve() {
+    ll n; cin &gt;&gt; n;
+    vector&lt;ll&gt;o(n);
+    for (int i = 0; i &lt; n; i++)cin &gt;&gt; o[i];
+    ll ans = 0;
+    for (int i = 1; i &lt;= n; i++) {
+        if (n % i == 0) {
+            ll x = 0;
+            for (int j = i; j &lt; n; j++) {
+                x = gcd(x, o[j] - o[j - i]);
+            }
+            ans += (x != 1);
+        }
+    }
+    cout &lt;&lt; ans &lt;&lt; &quot;\\n&quot;;
+}
+</code></pre>
 `;export{n as attributes,t as html};
