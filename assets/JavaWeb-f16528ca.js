@@ -120,4 +120,25 @@ const n={},t=`<h2>Maven</h2>
 <p>​	请求参数名与形参对象属性名相同，定义实体对象。</p>
 <h4>复杂实体对象</h4>
 <p>​	请求参数名与形参对象属性名相同，按照对象层次结构关系即可访问。</p>
+<h4>数组集合参数</h4>
+<pre><code class="language-java">@RequestMapping(&quot;/date&quot;)
+public String arrayParam(String hobby){}
+public String arrayParam(@RequestParam List&lt;String&gt; hobby){}
+</code></pre>
+<h4>日期参数</h4>
+<p>​	用@DateTimeFormat注释完成日期参数格式转换。</p>
+<pre><code class="language-java">@RequestMapping(&quot;/date&quot;)
+public String dateParam(@DateTimeFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;) DLocalDateTime updateTime)
+</code></pre>
+<h4>Json参数</h4>
+<p>​	用实体对象来接受Json参数，需要实体对象的名与json键名相同。</p>
+<p>​	需要注释@RequestBody。</p>
+<h4>路径参数</h4>
+<p>​	参数属于url的一部分，使用{...}来标识路径参数，需要使用@PathVariable。</p>
+<h2>设置响应</h2>
+<h4>@ResponseBody</h4>
+<p>​	类型：方法注解，类注解。</p>
+<p>​	位置：Controller方法上/类上。</p>
+<p>​	作用：将方法返回值直接响应，如果返回值类型是实体对象/集合。将会转换为JSON格式响应。</p>
+<p>​	说明：@ResponseBody=@Controller+@ResponseBody</p>
 `;export{n as attributes,t as html};

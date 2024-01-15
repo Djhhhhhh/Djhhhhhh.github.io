@@ -467,4 +467,53 @@ int main() {
 	return 0;
 }
 </code></pre>
+<h2>树形动态规划</h2>
+<p>​	我们通常以树的节点作为子问题的状态，然后采用递归或者记忆化搜索的方式进行求解。</p>
+<h4>一般步骤如下</h4>
+<ol>
+<li>定义状态：将每个节点定义为一个状态，然后找到合适的状态转移方程式。</li>
+<li>状态转移：通过递归或记忆化搜索的方式进行状态转移，计算出每个节点的最优解。</li>
+<li>合并答案：对于每个子问题的解，通过合适的方式进行合并，得到整个树的最终答案。</li>
+</ol>
+<h4>例题</h4>
+<h5>P1352 没有上司的舞会</h5>
+<p>​	典型的树上dp。我们可以判断，对于每个结点来说，只有当他去与不去的两种状态。如果该节点去，则子节点不许去；若该节点不去，则子节点可自行选择去与不去。</p>
+<h5>状态转移方程</h5>
+<p>$$
+dp[根][1]+=dp[子][0];
+$$</p>
+<p>$$
+dp[根][0]+=max(dp[子][1],dp[子][0]);
+$$</p>
+<h5>代码实现</h5>
+<pre><code class="language-c++">vector&lt;ll&gt;line[21000];
+vector&lt;ll&gt;val(21000);
+vector&lt;ll&gt;v(21000);
+ll dp[21000][2];
+void dfs(ll x) {
+    dp[x][1] = val[x];
+    dp[x][0] = 0;
+    for (auto y : line[x]) {
+        dfs(y);
+        dp[x][0] += max(dp[y][1], dp[y][0]);
+        dp[x][1] += dp[y][0];
+    }
+}
+void solve() {
+    ll n; cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++)cin &gt;&gt; val[i];
+    for (int i = 0; i &lt; n - 1; i++) {
+        ll x, y; cin &gt;&gt; x &gt;&gt; y;
+        line[y].push_back(x);
+        v[x] = 1;
+    }
+    for (int i = 1; i &lt;= n; i++) {
+        if (v[i] == 0) {
+            dfs(i);
+            cout &lt;&lt; max(dp[i][1], dp[i][0]) &lt;&lt; &quot;\\n&quot;;
+            return;
+        }
+    }
+}
+</code></pre>
 `;export{n as attributes,t as html};
